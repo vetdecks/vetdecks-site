@@ -1,60 +1,39 @@
-import React, {
-  ButtonHTMLAttributes,
-  ReactNode,
-  isValidElement,
-  cloneElement,
-} from "react";
+import React from "react";
+
+type Variant = "default" | "outline" | "ghost";
+type Size = "sm" | "md" | "lg";
+
+type ButtonProps =
+  React.ButtonHTMLAttributes<HTMLButtonElement> &
+  React.AnchorHTMLAttributes<HTMLAnchorElement> & {
+    variant?: Variant;
+    size?: Size;
+    href?: string; // if present, we render <a>
+    className?: string;
+  };
 
 const base =
-  "inline-flex items-center justify-center rounded-md font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2";
-
-const sizes = {
+  "inline-flex items-center justify-center rounded-xl font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-sky-500 disabled:opacity-50 disabled:pointer-events-none";
+const variants: Record<Variant, string> = {
+  default: "bg-sky-600 text-white hover:bg-sky-700",
+  outline: "border border-slate-300 bg-white text-slate-900 hover:bg-slate-50",
+  ghost: "bg-transparent hover:bg-slate-100 text-slate-900",
+};
+const sizes: Record<Size, string> = {
   sm: "h-8 px-3 text-sm",
   md: "h-10 px-4 text-sm",
   lg: "h-12 px-5 text-base",
-} as const;
+};
 
-const variants = {
-  default: "bg-gray-900 text-white hover:bg-gray-800",
-  outline: "border border-gray-300 hover:bg-gray-50",
-  ghost: "bg-transparent hover:bg-gray-100",
-} as const;
-
-type Size = keyof typeof sizes;
-type Variant = keyof typeof variants;
-
-interface ButtonProps
-  extends ButtonHTMLAttributes<HTMLButtonElement> {
-  size?: Size;
-  variant?: Variant;
-  asChild?: boolean;
-  className?: string;
-  children?: ReactNode;
-  /** allow href to avoid TS error if someone passes it */
-  href?: string;
-}
-
-export default function Button({
-  size = "md",
-  variant = "default",
-  asChild = false,
-  className = "",
-  children,
-  ...props
-}: ButtonProps) {
-  const classes = `${base} ${sizes[size]} ${variants[variant]} ${className}`;
-
-  // Support: <Button asChild><a href="...">Link</a></Button>
-  if (asChild && isValidElement(children)) {
-    return cloneElement(children as React.ReactElement, {
-      className: `${classes} ${(children as any).props?.className || ""}`.trim(),
-      ...props,
-    });
+const Button = React.forwardRef<HTMLElement, ButtonProps>(
+  ({ variant = "default", size = "md", className = "", href, ...props }, ref) => {
+    const classes = `${base} ${variants[variant]} ${sizes[size]} ${className}`;
+    if (href) {
+      return <a ref={ref as any} href={href} className={classes} {...(props as any)} />;
+    }
+    return <button ref={ref as any} className={classes} {...(props as any)} />;
   }
+);
 
-  return (
-    <button className={classes} {...props}>
-      {children}
-    </button>
-  );
-}
+Button.displayName = "Button";
+export default Button;
