@@ -1,11 +1,9 @@
 "use client";
-import React from "react";
 import Button from "../components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "../components/ui/card";
-import { Input } from "../components/ui/input";
 import { Check, Star } from "lucide-react";
 
-export default function Page(): React.JSX.Element {
+export default function Page(): JSX.Element {
   return (
     <main className="min-h-screen text-slate-900">
       {/* Nav */}
@@ -50,9 +48,7 @@ export default function Page(): React.JSX.Element {
             </ul>
           </div>
           <Card className="shadow-xl">
-            <CardHeader>
-              <CardTitle>Sample Deck Preview</CardTitle>
-            </CardHeader>
+            <CardHeader><CardTitle>Sample Deck Preview</CardTitle></CardHeader>
             <CardContent className="space-y-4">
               <div className="rounded-xl border p-4">
                 <div className="text-xs uppercase text-slate-500 mb-2">Front</div>
@@ -81,9 +77,9 @@ export default function Page(): React.JSX.Element {
           <div className="mt-10 grid md:grid-cols-4 gap-6">
             {[
               ["Built for vet curricula", "Organized by course & species with anatomy, physiology, medicine, surgery, and more."],
-              ["Active recall, done right", "Mix of basic facts, clinical pearls, and higher-order prompts that mirror exam thinking."],
-              ["Tiered difficulty", "Cards are tagged Basic, Core, Challenge for smart filtering."],
-              ["Directly mapped to chapters", "Each deck cites the source chapter so you can cross-check and dive deeper fast."]
+              ["Active recall, done right", "Mix of basic facts, clinical applications, and higher-order prompts that mirror exam thinking."],
+              ["Tiered difficulty", "Cards are tagged Basic, Concept, Higher-Order, Clinical Application and Species Differences for smart filtering."],
+              ["Directly mapped to chapters", "Each deck cites the source chapter so you can cross-check and dive deeper quickly and efficiently."]
             ].map(([title, body]) => (
               <Card key={title as string}>
                 <CardHeader><CardTitle className="text-lg">{title}</CardTitle></CardHeader>
@@ -94,7 +90,7 @@ export default function Page(): React.JSX.Element {
         </div>
       </section>
 
-      {/* How it works + Subjects */}
+      {/* How it works */}
       <section id="how" className="py-16 bg-slate-50 border-t scroll-mt-24">
         <div className="mx-auto max-w-6xl px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center">How VetDecks works</h2>
@@ -104,12 +100,16 @@ export default function Page(): React.JSX.Element {
               ["2. Download the deck", "Import into Anki in seconds — tags & media included."],
               ["3. Study with purpose", "Filter by difficulty, species, or textbook chapter."]
             ].map(([t, b]) => (
-              <Card key={t as string}><CardHeader><CardTitle>{t}</CardTitle></CardHeader><CardContent className="text-slate-700">{b}</CardContent></Card>
+              <Card key={t as string}>
+                <CardHeader><CardTitle>{t}</CardTitle></CardHeader>
+                <CardContent className="text-slate-700">{b}</CardContent>
+              </Card>
             ))}
           </div>
         </div>
       </section>
 
+      {/* Subjects */}
       <section id="subjects" className="py-16 bg-white border-t scroll-mt-24">
         <div className="mx-auto max-w-6xl px-4">
           <h2 className="text-3xl md:text-4xl font-bold">Subjects & deck lines</h2>
@@ -140,51 +140,48 @@ export default function Page(): React.JSX.Element {
         </div>
       </section>
 
-      {/* Pricing */}
+      {/* Pricing (All-Access removed) */}
       <section id="pricing" className="py-20 bg-slate-50 border-t scroll-mt-24">
         <div className="mx-auto max-w-6xl px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center">Simple, student-friendly pricing</h2>
-          <p className="text-center text-slate-700 mt-2">Start small or go all-in — your call.</p>
+          <p className="text-center text-slate-700 mt-2">
+            Buy just the chapters you need, or the complete book.
+          </p>
 
-          <div className="mt-10 grid md:grid-cols-3 gap-6">
-            {[
-              {
-                title: "Single Deck",
-                price: "$9",
-                bullets: ["Anki .apkg", "Media & diagrams", "Free updates for that deck"],
-                cta: "Choose Single Deck",
-                link: "#buy-single"
-              },
-              {
-                title: "Course Bundle",
-                price: "$39",
-                bullets: ["Multiple decks", "Smart tags", "Email support"],
-                cta: "Choose Course Bundle",
-                link: "#buy-bundle"
-              },
-              {
-                title: "All-Access",
-                price: "$99",
-                bullets: ["All current decks", "All updates for 12 months", "Priority support"],
-                cta: "Choose All-Access",
-                link: "#buy-all"
-              }
-            ].map(({ title, price, bullets, cta, link }) => (
-              <Card key={title as string} className={title === "Course Bundle" ? "ring-2 ring-sky-600" : ""}>
-                <CardHeader><CardTitle>{title}</CardTitle></CardHeader>
-                <CardContent>
-                  <div className="text-5xl font-extrabold">{price} <span className="text-base font-medium">USD</span></div>
-                  <ul className="mt-4 space-y-2 text-slate-700">
-                    {bullets.map(b => (
-                      <li key={b} className="flex gap-2"><Check className="h-5 w-5 text-emerald-600" /> {b}</li>
-                    ))}
-                  </ul>
-                  <Button href={link} className="w-full mt-6">{cta}</Button>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+        <div className="mt-10 grid md:grid-cols-2 gap-6">
+          {/* Single Chapter */}
+          <Card>
+            <CardHeader><CardTitle>Single Chapter</CardTitle></CardHeader>
+            <CardContent>
+              <div className="text-5xl font-extrabold">$5 <span className="text-base font-medium">each</span></div>
+              <ul className="mt-4 space-y-2 text-slate-700">
+                <li className="flex gap-2"><Check className="h-5 w-5 text-emerald-600" /> Anki .apkg with media</li>
+                <li className="flex gap-2"><Check className="h-5 w-5 text-emerald-600" /> Tags & labeled diagrams</li>
+              </ul>
+              <Button href="https://vetdecks.gumroad.com/l/ch-7-dyce" target="_blank" rel="noopener noreferrer" className="w-full mt-6">
+                Choose a chapter
+              </Button>
+            </CardContent>
+          </Card>
+
+          {/* Complete Book */}
+          <Card className="ring-2 ring-sky-600">
+            <CardHeader><CardTitle>Complete Book</CardTitle></CardHeader>
+            <CardContent>
+              <div className="text-5xl font-extrabold">
+                From $39 <span className="text-base font-medium">(varies by book)</span>
+              </div>
+              <ul className="mt-4 space-y-2 text-slate-700">
+                <li className="flex gap-2"><Check className="h-5 w-5 text-emerald-600" /> All chapters included</li>
+                <li className="flex gap-2"><Check className="h-5 w-5 text-emerald-600" /> Smart tags for filtering</li>
+              </ul>
+              <Button href="https://vetdecks.gumroad.com/l/dyce-complete" target="_blank" rel="noopener noreferrer" className="w-full mt-6">
+                Choose a book
+              </Button>
+            </CardContent>
+          </Card>
         </div>
+      </div>
       </section>
 
       {/* Testimonials */}
@@ -197,7 +194,12 @@ export default function Page(): React.JSX.Element {
               "“I finally get spaced repetition. The tags make it easy to focus just on what we covered this week.” — 1st-year student",
               "“The images and species differences are the secret sauce. Students actually *remember* them.” — Anatomy TA",
             ].map((quote) => (
-              <Card key={quote}><CardContent className="pt-6 text-slate-800"><Star className="inline h-5 w-5 mr-2 text-amber-500" />{quote}</CardContent></Card>
+              <Card key={quote}>
+                <CardContent className="pt-6 text-slate-800">
+                  <Star className="inline h-5 w-5 mr-2 text-amber-500" />
+                  {quote}
+                </CardContent>
+              </Card>
             ))}
           </div>
         </div>
@@ -211,7 +213,7 @@ export default function Page(): React.JSX.Element {
             <Card><CardContent className="pt-6"><strong>Do I need Anki to use VetDecks?</strong><br />Yes. Our downloads are standard .apkg files that import directly into Anki on desktop or mobile.</CardContent></Card>
             <Card><CardContent className="pt-6"><strong>What textbooks are you aligned to?</strong><br />We build from the most-used veterinary texts; each deck cites chapter sources inside the cards.</CardContent></Card>
             <Card><CardContent className="pt-6"><strong>Can I request a topic?</strong><br />Absolutely — use the contact link below and we’ll prioritize high-demand subjects.</CardContent></Card>
-            <Card><CardContent className="pt-6"><strong>Do updates cost extra?</strong><br />Single decks include lifetime updates for that deck. All-Access includes all updates for 12 months.</CardContent></Card>
+            <Card><CardContent className="pt-6"><strong>Do updates cost extra?</strong><br />Single chapters include lifetime updates; complete books include updates for 12 months.</CardContent></Card>
           </div>
         </div>
       </section>
@@ -228,7 +230,6 @@ export default function Page(): React.JSX.Element {
             </ul>
           </div>
           <div className="space-y-3">
-            {/* Replace these with Gumroad/Stripe links when ready */}
             <Button href="/downloads/Ch-7-Cardiovascular-System-Dyce.apkg" className="w-full">Download .apkg (Anki)</Button>
             <Button variant="outline" href="/downloads/Ch-7-Cardiovascular-System-Dyce.zip" className="w-full">Download .zip (backup)</Button>
           </div>
@@ -240,7 +241,10 @@ export default function Page(): React.JSX.Element {
         <div className="mx-auto max-w-6xl px-4 grid md:grid-cols-3 gap-8 text-sm">
           <div>
             <div className="font-semibold">VetDecks</div>
-            <p className="text-slate-600 mt-2">Questions tailored directly from the most-used veterinary textbooks — from basic concepts to higher-level thinking, with diagrams included.</p>
+            <p className="text-slate-600 mt-2">
+              Questions tailored directly from the most-used veterinary textbooks — from basic concepts
+              to higher-level thinking, with diagrams included.
+            </p>
           </div>
           <div>
             <div className="font-semibold">Company</div>
