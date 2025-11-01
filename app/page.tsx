@@ -35,7 +35,7 @@ export default function Page(): JSX.Element {
             <p className="mt-5 text-lg text-slate-700">
               VetDecks turns dense chapters into clean, exam-ready flashcards:
               fundamentals, species differences, and higher-order questions —
-              with diagrams — so you learn faster and remember longer.
+              so you learn faster and remember longer.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <Button href="#subjects">Browse decks</Button>
@@ -44,7 +44,7 @@ export default function Page(): JSX.Element {
             <ul className="mt-6 space-y-2 text-slate-700">
               <li className="flex gap-2"><Check className="h-5 w-5 text-sky-600" /> Directly mapped to popular vet texts</li>
               <li className="flex gap-2"><Check className="h-5 w-5 text-sky-600" /> Basic facts → clinical reasoning</li>
-              <li className="flex gap-2"><Check className="h-5 w-5 text-sky-600" /> Images & labeled diagrams included</li>
+              <li className="flex gap-2"><Check className="h-5 w-5 text-sky-600" /> Species differences called out clearly</li>
             </ul>
           </div>
           <Card className="shadow-xl">
@@ -62,7 +62,7 @@ export default function Page(): JSX.Element {
                 <ul className="space-y-2">
                   <li className="flex gap-2"><Check className="h-5 w-5 text-emerald-600" /> <strong>Dog:</strong> Hepatic, left gastric, splenic.</li>
                   <li className="flex gap-2"><Check className="h-5 w-5 text-emerald-600" /> <strong>Horse:</strong> Similar trunks with enlarged splenic branches.</li>
-                  <li className="flex gap-2"><Check className="h-5 w-5 text-emerald-600" /> <strong>Source:</strong> Standard vet anatomy texts; labeled diagram included.</li>
+                  <li className="flex gap-2"><Check className="h-5 w-5 text-emerald-600" /> <strong>Source:</strong> Standard vet anatomy texts.</li>
                 </ul>
               </div>
             </CardContent>
@@ -116,11 +116,11 @@ export default function Page(): JSX.Element {
           <p className="text-slate-700 mt-2">Curated collections organized by course and species. New decks added regularly.</p>
           <div className="mt-8 grid md:grid-cols-3 gap-6">
             {[
-              ["Anatomy", "Region- and system-based decks with labeled diagrams.", "Core"],
+              ["Anatomy", "Region, organ system and species based decks.", "Core"],
               ["Physiology", "Mechanisms first, then clinical correlations.", "Core"],
               ["Pharmacology", "Drug classes, mechanisms, contraindications, and red flags.", "Core"],
               ["Medicine & Surgery", "Problem-based cards that drive pattern recognition.", "Clinical"],
-              ["Pathology", "Gross ↔ histo with key differentials and images.", "Core"],
+              ["Pathology", Patterns with key differentials highlighted.", "Core"],
               ["Repro & Theriogenology", "Species differences and protocols at a glance.", "Clinical"],
             ].map(([title, blurb, tag]) => (
               <Card key={title as string}>
@@ -155,8 +155,8 @@ export default function Page(): JSX.Element {
             <CardContent>
               <div className="text-5xl font-extrabold">$5 <span className="text-base font-medium">each</span></div>
               <ul className="mt-4 space-y-2 text-slate-700">
-                <li className="flex gap-2"><Check className="h-5 w-5 text-emerald-600" /> Anki .apkg with media</li>
-                <li className="flex gap-2"><Check className="h-5 w-5 text-emerald-600" /> Tags & labeled diagrams</li>
+                <li className="flex gap-2"><Check className="h-5 w-5 text-emerald-600" /> Anki .apkg single chapter file </li>
+                <li className="flex gap-2"><Check className="h-5 w-5 text-emerald-600" /> Smart tags for filtering</li>
               </ul>
               <Button href="https://vetdecks.gumroad.com/l/ch-7-dyce" target="_blank" rel="noopener noreferrer" className="w-full mt-6">
                 Choose a chapter
@@ -192,7 +192,7 @@ export default function Page(): JSX.Element {
             {[
               "“These decks saved me hours rebuilding content that already exists in the textbook. Exact enough for exams, clear enough for clinics.” — Final-year DVM student",
               "“I finally get spaced repetition. The tags make it easy to focus just on what we covered this week.” — 1st-year student",
-              "“The images and species differences are the secret sauce. Students actually *remember* them.” — Anatomy TA",
+              "“The species differences are so helpful. Students actually *remember* them.” — Anatomy TA",
             ].map((quote) => (
               <Card key={quote}>
                 <CardContent className="pt-6 text-slate-800">
@@ -225,7 +225,7 @@ export default function Page(): JSX.Element {
             <h3 className="text-2xl font-bold">Grab a free sample deck</h3>
             <ul className="mt-4 space-y-2 text-slate-700">
               <li className="flex gap-2"><Check className="h-5 w-5 text-emerald-600" /> Fully tagged cards</li>
-              <li className="flex gap-2"><Check className="h-5 w-5 text-emerald-600" /> Images included</li>
+              <li className="flex gap-2"><Check className="h-5 w-5 text-emerald-600" /> Species callouts for each concept</li>
               <li className="flex gap-2"><Check className="h-5 w-5 text-emerald-600" /> No email required</li>
             </ul>
           </div>
@@ -243,7 +243,7 @@ export default function Page(): JSX.Element {
             <div className="font-semibold">VetDecks</div>
             <p className="text-slate-600 mt-2">
               Questions tailored directly from the most-used veterinary textbooks — from basic concepts
-              to higher-level thinking, with diagrams included.
+              to higher-level thinking, with species differences highlighted.
             </p>
           </div>
           <div>
