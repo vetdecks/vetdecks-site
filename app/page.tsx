@@ -23,6 +23,12 @@ export default function Page(): JSX.Element {
           </div>
         </div>
       </header>
+      {/* Announcement banner */}
+      <div className="bg-amber-50 border-b border-amber-200 text-amber-900 text-sm">
+        <div className="mx-auto max-w-6xl px-4 py-2 text-center">
+          <strong>VetDecks is new!</strong> Core decks are live now. More chapters and full courses (physio, pharm, surgery, etc.) are being added over the next few weeks.
+        </div>
+      </div>
 
       {/* Hero */}
       <section className="bg-gradient-to-b from-white to-slate-50">
