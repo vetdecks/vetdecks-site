@@ -55,7 +55,7 @@ export default function Page() {
             <ul className="mt-6 space-y-2 text-slate-700 text-sm">
               <li className="flex gap-2"><Check className="h-5 w-5 text-sky-600" /> Directly mapped to popular vet texts</li>
               <li className="flex gap-2"><Check className="h-5 w-5 text-sky-600" /> Basic facts → clinical reasoning</li>
-              <li className="flex gap-2"><Check className="h-5 w-5 text-sky-600" /> No signup, instant download</li>
+              <li className="flex gap-2"><Check className="h-5 w-5 text-sky-600" /> No sign-up, instant downloads</li>
             </ul>
           </div>
 
@@ -85,7 +85,7 @@ export default function Page() {
                   </li>
                   <li className="flex gap-2">
                     <Check className="h-5 w-5 text-emerald-600" />
-                    <strong>Source:</strong> Standard vet anatomy texts.
+                    <strong>Source:</strong> Dyce, Sack, and Wensing's Textbook of Veterinary Anatomy.
                   </li>
                 </ul>
               </div>
@@ -103,9 +103,9 @@ export default function Page() {
 
           <div className="mt-10 grid md:grid-cols-4 gap-6 text-sm">
             {[
-              ["Built for vet curricula", "Organized by course & species."],
+              ["Built for vet curricula", "Organized by course & textbook."],
               ["Active recall, done right", "Mix of core facts and higher-order prompts that mirror exam thinking."],
-              ["Tiered difficulty", "Cards are tagged Basic / Core / Challenge for smart filtering."],
+              ["Tiered difficulty", "Cards are tagged Basic / Concept / Higher-Order / Clinical Application / Species Differences for smart filtering."],
               ["Directly mapped to chapters", "Each deck cites the source chapter so you can cross-check fast."]
             ].map(([title, body]) => (
               <Card key={title as string}>
@@ -128,9 +128,9 @@ export default function Page() {
 
           <div className="mt-10 grid md:grid-cols-3 gap-6 text-sm">
             {[
-              ["1. Choose your subject", "Pick anatomy, physiology, medicine, surgery, or systems."],
+              ["1. Choose your subject", "Pick anatomy, physiology, medicine, surgery, or histology."],
               ["2. Download the deck", "Import into Anki in seconds — tags included."],
-              ["3. Study with purpose", "Filter by difficulty, species, or textbook chapter."]
+              ["3. Study with purpose", "Filter by difficulty, subject, or textbook chapter."]
             ].map(([t, b]) => (
               <Card key={t as string}>
                 <CardHeader><CardTitle className="text-base">{t}</CardTitle></CardHeader>
@@ -156,7 +156,7 @@ export default function Page() {
               ["Pharmacology", "Drug classes, mechanisms, contraindications, and red flags.", "Core"],
               ["Medicine & Surgery", "Problem-based cards that drive pattern recognition.", "Clinical"],
               ["Pathology", "Gross ↔ histo with key differentials.", "Core"],
-              ["Repro & Theriogenology", "Species differences and protocols at a glance.", "Clinical"],
+              ["Reproduction", "Species differences and protocols at a glance.", "Clinical"],
             ].map(([title, blurb, tag]) => (
               <Card key={title as string}>
                 <CardHeader>
@@ -195,9 +195,8 @@ export default function Page() {
                 title: "Single Chapter Deck",
                 price: "€5",
                 bullets: [
-                  "One chapter / topic",
+                  "One chapter",
                   "Fully tagged",
-                  "Lifetime updates for that chapter deck"
                 ],
                 cta: "Choose Single Chapter",
                 link: "https://vetdecks.gumroad.com/l/ch-7-dyce"
@@ -206,9 +205,8 @@ export default function Page() {
                 title: "Full Textbook / Course Bundle",
                 price: "varies",
                 bullets: [
-                  "Multiple chapters together",
-                  "Species differences included where relevant",
-                  "Lifetime updates for that bundle"
+                  "All chapters from the selected textbook",
+                  "Fully tagged",
                 ],
                 cta: "See bundles",
                 link: "https://vetdecks.gumroad.com"
