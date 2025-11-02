@@ -9,6 +9,10 @@ export default function Page() {
   return (
     <main className="min-h-screen text-slate-900">
       {/* Nav */}
+        <div className="bg-amber-50 border-b border-amber-200 text-amber-800 text-center text-sm py-2 px-4">
+        VetDecks is new 🎉 Chapters 1–21 of Dyce Anatomy are live now. More chapters and more subjects are being added daily.
+        </div>
+
       <header className="sticky top-0 z-10 backdrop-blur bg-white/70 border-b border-slate-200">
         <div className="mx-auto max-w-6xl px-4 h-14 flex items-center justify-between">
           <a href="#" className="font-semibold tracking-tight">VetDecks</a>
@@ -189,53 +193,138 @@ export default function Page() {
             Pay only for what you need. More decks are being added soon.
           </p>
 
-          <div className="mt-10 grid md:grid-cols-2 gap-6">
-            {[
-              {
-                title: "Single Chapter Deck",
-                price: "€5",
-                bullets: [
-                  "One chapter",
-                  "Fully tagged",
-                ],
-                cta: "Choose Single Chapter",
-                link: "https://vetdecks.gumroad.com/l/ch-7-dyce"
-              },
-              {
-                title: "Full Textbook / Course Bundle",
-                price: "varies",
-                bullets: [
-                  "All chapters from the selected textbook",
-                  "Fully tagged",
-                ],
-                cta: "See bundles",
-                link: "https://vetdecks.gumroad.com"
-              }
-            ].map(({ title, price, bullets, cta, link }) => (
-              <Card key={title as string} className={title === "Full Textbook / Course Bundle" ? "ring-2 ring-sky-600" : ""}>
-                <CardHeader>
-                  <CardTitle className="text-lg">{title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="text-4xl font-extrabold">
-                    {price} <span className="text-base font-medium">EUR</span>
-                  </div>
-                  <ul className="mt-4 space-y-2 text-slate-700 text-sm">
-                    {bullets.map(b => (
-                      <li key={b} className="flex gap-2">
-                        <Check className="h-5 w-5 text-emerald-600" /> {b}
-                      </li>
-                    ))}
-                  </ul>
-                  <Button href={link} className="w-full mt-6">
-                    {cta}
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
+         <div className="mt-10 grid md:grid-cols-2 gap-6">
+  {[
+    {
+      title: "Single Chapter Deck",
+      price: "$5",
+      bullets: [
+        "Anki .apkg (ready to import)",
+        "Smart tags (subject, chapter, difficulty)",
+      ],
+      cta: "Browse chapters",
+      link: "https://vetdecks.gumroad.com/"
+    }
+  ].map(({ title, price, bullets, cta, link }) => (
+    <Card key={title}>
+      <CardHeader>
+        <CardTitle>{title}</CardTitle>
+      </CardHeader>
+      <CardContent>
+        <div className="text-5xl font-extrabold">
+          {price} <span className="text-base font-medium">EUR</span>
+        </div>
+
+        <ul className="mt-4 space-y-2 text-slate-700">
+          {bullets.map((b) => (
+            <li key={b} className="flex gap-2">
+              <Check className="h-5 w-5 text-emerald-600" /> {b}
+            </li>
+          ))}
+        </ul>
+
+        <Button
+          href={link}
+          className="w-full mt-6"
+        >
+          {cta}
+        </Button>
+      </CardContent>
+    </Card>
+  ))}
           </div>
         </div>
       </section>
+{/* Chapters for sale */}
+<section
+  id="chapters"
+  className="py-20 bg-white border-t scroll-mt-24"
+>
+  <div className="mx-auto max-w-6xl px-4">
+    <h2 className="text-3xl md:text-4xl font-bold text-center">
+      Dyce Anatomy — Available Chapters
+    </h2>
+    <p className="text-center text-slate-700 mt-2 max-w-2xl mx-auto">
+      Download a chapter-specific Anki deck (.apkg), fully tagged and exam-focused.
+      Each chapter is sold separately so you only buy what you need.
+    </p>
+
+    <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {[
+        { num: "1",  url: "https://vetdecks.gumroad.com/l/ch-1-dyce" },
+        { num: "2",  url: "https://vetdecks.gumroad.com/l/ch-2-dyce" },
+        { num: "3",  url: "https://vetdecks.gumroad.com/l/ch-3-dyce" },
+        { num: "4",  url: "https://vetdecks.gumroad.com/l/ch-4-dyce" },
+        { num: "5",  url: "https://vetdecks.gumroad.com/l/ch-5-dyce" },
+        { num: "6",  url: "https://vetdecks.gumroad.com/l/ch-6-dyce" },
+        {
+          num: "7 (free sample)",
+          url: "https://vetdecks.gumroad.com/l/ch-7-dyce",
+          highlight: true
+        },
+        { num: "8",  url: "https://vetdecks.gumroad.com/l/ch-8-dyce" },
+        { num: "9",  url: "https://vetdecks.gumroad.com/l/ch-9-dyce" },
+        { num: "10", url: "https://vetdecks.gumroad.com/l/ch-10-dyce" },
+        { num: "11", url: "https://vetdecks.gumroad.com/l/ch-11-dyce" },
+        { num: "12", url: "https://vetdecks.gumroad.com/l/ch-12-dyce" },
+        { num: "13", url: "https://vetdecks.gumroad.com/l/ch-13-dyce" },
+        { num: "14", url: "https://vetdecks.gumroad.com/l/ch-14-dyce" },
+        { num: "15", url: "https://vetdecks.gumroad.com/l/ch-15-dyce" },
+        { num: "16", url: "https://vetdecks.gumroad.com/l/ch-16-dyce" },
+        { num: "17", url: "https://vetdecks.gumroad.com/l/ch-17-dyce" },
+        { num: "18", url: "https://vetdecks.gumroad.com/l/ch-18-dyce" },
+        { num: "19", url: "https://vetdecks.gumroad.com/l/ch-19-dyce" },
+        { num: "20", url: "https://vetdecks.gumroad.com/l/ch-20-dyce" },
+        { num: "21", url: "https://vetdecks.gumroad.com/l/ch-21-dyce" }
+      ].map(({ num, url, highlight }) => (
+        <Card
+          key={num}
+          className={highlight ? "ring-2 ring-sky-600" : ""}
+        >
+          <CardHeader>
+            <div className="flex items-center justify-between">
+              <CardTitle>
+                Dyce Anatomy — Chapter {num}
+              </CardTitle>
+              {highlight && (
+                <span className="text-xs px-2 py-1 rounded-full bg-sky-100 text-sky-700">
+                  Free sample
+                </span>
+              )}
+            </div>
+          </CardHeader>
+          <CardContent className="text-slate-700 space-y-4">
+            <div className="text-sm">
+              Fully tagged Anki deck (.apkg). Focused on examable anatomy,
+              species differences, and clinically relevant structures.
+            </div>
+
+            <Button
+              href={url}
+              className="w-full"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {highlight ? "Download free" : "Buy this chapter"}
+            </Button>
+          </CardContent>
+        </Card>
+      ))}
+    </div>
+
+    <p className="text-center text-xs text-slate-500 mt-8">
+      More chapters and other subjects (physio, pharm, surgery, repro) are
+      being added daily. Check back soon {" "}
+      <a
+        className="underline"
+        href="mailto:hello@vetdecks.com"
+      >
+        hello@vetdecks.com
+      </a>{" "}
+      to request a priority topic.
+    </p>
+  </div>
+</section>
 
       {/* Testimonials */}
       <section className="py-16 bg-white border-t">
@@ -324,20 +413,14 @@ export default function Page() {
           </div>
 
           <div className="space-y-3">
-            <Button
-              href="https://vetdecks.gumroad.com/l/ch-7-dyce"
-              className="w-full"
-            >
-              Download sample (.apkg)
-            </Button>
-
-            <Button
-              variant="outline"
-              href="https://vetdecks.gumroad.com/l/ch-7-dyce"
-              className="w-full"
-            >
-              Backup .zip
-            </Button>
+          <Button
+  href="https://vetdecks.gumroad.com/l/ch-7-dyce"
+  className="w-full"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  Get Chapter 7 free (.apkg)
+</Button>
           </div>
         </div>
       </section>
