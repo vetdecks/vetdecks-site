@@ -276,6 +276,16 @@ export default function Page() {
         { num: "19", url: "https://vetdecks.gumroad.com/l/ch-19-dyce" },
         { num: "20", url: "https://vetdecks.gumroad.com/l/ch-20-dyce" },
         { num: "21", url: "https://vetdecks.gumroad.com/l/ch-21-dyce" }
+        { num: "22", url: "https://vetdecks.gumroad.com/l/ch-22-dyce" },
+        { num: "23", url: "https://vetdecks.gumroad.com/l/ch-23-dyce" },
+        { num: "24", url: "https://vetdecks.gumroad.com/l/ch-24-dyce" },
+        { num: "25", url: "https://vetdecks.gumroad.com/l/ch-25-dyce" },
+        { num: "26", url: "https://vetdecks.gumroad.com/l/ch-26-dyce" },
+        { num: "27", url: "https://vetdecks.gumroad.com/l/ch-27-dyce" },
+        { num: "28", url: "https://vetdecks.gumroad.com/l/ch-28-dyce" },
+        { num: "29", url: "https://vetdecks.gumroad.com/l/ch-29-dyce" },
+        { num: "30", url: "https://vetdecks.gumroad.com/l/ch-30-dyce" },
+        { num: "31", url: "https://vetdecks.gumroad.com/l/ch-31-dyce" },
       ].map(({ num, url, highlight }) => (
         <Card
           key={num}
