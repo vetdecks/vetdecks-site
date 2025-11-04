@@ -10,7 +10,7 @@ export default function Page() {
     <main className="min-h-screen text-slate-900">
       {/* Nav */}
         <div className="bg-amber-50 border-b border-amber-200 text-amber-800 text-center text-sm py-2 px-4">
-        VetDecks is new 🎉 Chapters 1–21 of Dyce Anatomy are live now. More chapters and more subjects are being added daily.
+        VetDecks is new 🎉 Chapters 1–31 of Dyce Anatomy are live now. More chapters and more subjects are being added daily.
         </div>
 
       <header className="sticky top-0 z-10 backdrop-blur bg-white/70 border-b border-slate-200">
