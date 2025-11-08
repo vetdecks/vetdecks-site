@@ -6,7 +6,9 @@ import { Card, CardContent, CardHeader, CardTitle } from "../components/ui/card"
 import { Check, Star } from "lucide-react";
 
 export default function Page() {
-  // list of Dyce chapters 1–31
+  // --- DATA -----------------------------------------------------------------
+
+  // Dyce, individual chapters 1–38
   const dyceChapters = [
     { title: "Ch. 1 – Dyce", url: "https://vetdecks.gumroad.com/l/ch-1-dyce" },
     { title: "Ch. 2 – Dyce", url: "https://vetdecks.gumroad.com/l/ch-2-dyce" },
@@ -40,13 +42,47 @@ export default function Page() {
     { title: "Ch. 29 – Dyce", url: "https://vetdecks.gumroad.com/l/ch-29-dyce" },
     { title: "Ch. 30 – Dyce", url: "https://vetdecks.gumroad.com/l/ch-30-dyce" },
     { title: "Ch. 31 – Dyce", url: "https://vetdecks.gumroad.com/l/ch-31-dyce" },
+    { title: "Ch. 32 – Dyce", url: "https://vetdecks.gumroad.com/l/ch-32-dyce" },
+    { title: "Ch. 33 – Dyce", url: "https://vetdecks.gumroad.com/l/ch-33-dyce" },
+    { title: "Ch. 34 – Dyce", url: "https://vetdecks.gumroad.com/l/ch-34-dyce" },
+    { title: "Ch. 35 – Dyce", url: "https://vetdecks.gumroad.com/l/ch-35-dyce" },
+    { title: "Ch. 36 – Dyce", url: "https://vetdecks.gumroad.com/l/ch-36-dyce" },
+    { title: "Ch. 37 – Dyce", url: "https://vetdecks.gumroad.com/l/ch-37-dyce" },
+    { title: "Ch. 38 – Dyce", url: "https://vetdecks.gumroad.com/l/ch-38-dyce" },
+  ];
+
+  // full Dyce textbook
+  const dyceFull = {
+    title: "Dyce Anatomy — full textbook (Ch. 1–38)",
+    url: "https://vetdecks.gumroad.com/l/dyce1-38",
+  };
+
+  // Wheater parts + full
+  const wheaterParts = [
+    { title: "Part 1 – Wheater", url: "https://vetdecks.gumroad.com/l/part-1-wheater" },
+    { title: "Part 2 – Wheater", url: "https://vetdecks.gumroad.com/l/Part-2-wheater" },
+    { title: "Part 3 – Wheater", url: "https://vetdecks.gumroad.com/l/Part-3-wheater" },
+  ];
+  const wheaterFull = {
+    title: "Wheater’s Functional Histology — full (Parts 1–3)",
+    url: "https://vetdecks.gumroad.com/l/Part-1-3-wheater",
+  };
+
+  // Cunningham sections
+  const cunninghamSections = [
+    { title: "Section 1 – Cunningham", url: "https://vetdecks.gumroad.com/l/section-1-cunningham" },
+    { title: "Section 2 – Cunningham", url: "https://vetdecks.gumroad.com/l/section-2-cunningham" },
+    { title: "Section 3 – Cunningham", url: "https://vetdecks.gumroad.com/l/section-3-cunningham" },
+    { title: "Section 4 – Cunningham", url: "https://vetdecks.gumroad.com/l/section-4-cunningham" },
+    { title: "Section 5 – Cunningham", url: "https://vetdecks.gumroad.com/l/section-5-cunningham" },
+    { title: "Section 6 – Cunningham", url: "https://vetdecks.gumroad.com/l/section-6-cunningham" },
   ];
 
   return (
     <main className="min-h-screen text-slate-900">
       {/* top banner */}
       <div className="bg-amber-50 border-b border-amber-200 text-amber-800 text-center text-sm py-2 px-4">
-        VetDecks is new 🎉 Chapters 1–31 of Dyce Anatomy are live now. More decks are coming soon.
+        VetDecks is new 🎉 Dyce Anatomy chapters 1–38 are live. Wheater + Cunningham started. More decks coming soon.
       </div>
 
       {/* Nav */}
@@ -55,9 +91,8 @@ export default function Page() {
           <a href="#" className="font-semibold tracking-tight">VetDecks</a>
           <nav className="hidden md:flex items-center gap-6 text-sm">
             <a href="#features" className="hover:opacity-80">Features</a>
-            <a href="#how" className="hover:opacity-80">How it works</a>
-            <a href="#subjects" className="hover:opacity-80">Subjects</a>
             <a href="#pricing" className="hover:opacity-80">Pricing</a>
+            <a href="#subjects" className="hover:opacity-80">Subjects</a>
             <a href="#faq" className="hover:opacity-80">FAQ</a>
           </nav>
           <div className="flex items-center gap-2">
@@ -76,8 +111,8 @@ export default function Page() {
               <span className="text-sky-700">crafted from the most-used textbooks</span>
             </h1>
             <p className="mt-5 text-lg text-slate-700">
-              VetDecks turns dense chapters into clean, exam-ready flashcards: fundamentals,
-              species differences, and higher-order questions — so you learn faster and remember longer.
+              VetDecks turns dense chapters into clean, exam-ready flashcards: fundamentals, species differences,
+              and higher-order questions — so you learn faster and remember longer.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <Button href="#subjects">Browse decks</Button>
@@ -86,11 +121,10 @@ export default function Page() {
             <ul className="mt-6 space-y-2 text-slate-700">
               <li className="flex gap-2"><Check className="h-5 w-5 text-sky-600" /> Directly mapped to popular vet texts</li>
               <li className="flex gap-2"><Check className="h-5 w-5 text-sky-600" /> Basic facts → clinical reasoning</li>
-              <li className="flex gap-2"><Check className="h-5 w-5 text-sky-600" /> Media-friendly, Anki-ready cards</li>
+              <li className="flex gap-2"><Check className="h-5 w-5 text-sky-600" /> Copyright-safe, text-first cards</li>
             </ul>
           </div>
 
-          {/* sample card */}
           <Card className="shadow-xl">
             <CardHeader>
               <CardTitle>Sample Deck Preview</CardTitle>
@@ -106,7 +140,7 @@ export default function Page() {
                 <div className="text-xs uppercase text-slate-500 mb-2">Back</div>
                 <ul className="space-y-2">
                   <li className="flex gap-2"><Check className="h-5 w-5 text-emerald-600" /> Dog: hepatic, left gastric, splenic.</li>
-                  <li className="flex gap-2"><Check className="h-5 w-5 text-emerald-600" /> Horse: similar trunks with enlarged splenic branches.</li>
+                  <li className="flex gap-2"><Check className="h-5 w-5 text-emerald-600" /> Horse: enlarged splenic branches.</li>
                   <li className="flex gap-2"><Check className="h-5 w-5 text-emerald-600" /> Source: standard vet anatomy texts.</li>
                 </ul>
               </div>
@@ -121,10 +155,10 @@ export default function Page() {
           <h2 className="text-3xl md:text-4xl font-bold text-center">Study smarter, retain longer</h2>
           <div className="mt-10 grid md:grid-cols-4 gap-6">
             {[
-              ["Built for vet curricula", "Organized by course & species."],
-              ["Active recall, done right", "Mix of basic facts and higher-order prompts."],
-              ["Tiered difficulty", "Filter to what you need right now."],
-              ["Textbook-aligned", "Cards cite the source chapter."],
+              ["Built for vet curricula", "Organized by course, species, and textbook."],
+              ["Exam-style prompts", "Higher-order and recall cards in the same deck."],
+              ["Buy only what you need", "Single chapter or full textbook bundles."],
+              ["Constantly expanding", "More anatomy, physiology, pathology in progress."],
             ].map(([title, body]) => (
               <Card key={title}>
                 <CardHeader><CardTitle className="text-lg">{title}</CardTitle></CardHeader>
@@ -135,63 +169,121 @@ export default function Page() {
         </div>
       </section>
 
-      {/* Subjects + Dyce list */}
-      <section id="subjects" className="py-16 bg-white border-t scroll-mt-24">
-        <div className="mx-auto max-w-6xl px-4">
-          <div className="flex items-center justify-between gap-4 mb-6">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold">Dyce Anatomy — chapters 1–31</h2>
-              <p className="text-slate-700 mt-2">Buy only the chapters you need right now.</p>
-            </div>
-            <Button variant="outline" href="#pricing">See pricing</Button>
-          </div>
-
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
-            {dyceChapters.map((ch) => (
-              <Card key={ch.url}>
-                <CardHeader className="pb-2">
-                  <CardTitle className="text-base">{ch.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <Button href={ch.url} className="w-full">Get this deck</Button>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Pricing */}
+      {/* Pricing ABOVE chapters */}
       <section id="pricing" className="py-20 bg-slate-50 border-t scroll-mt-24">
         <div className="mx-auto max-w-6xl px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center">Simple, student-friendly pricing</h2>
-          <p className="text-center text-slate-700 mt-2">Start with one chapter. Add more as you need them.</p>
+          <p className="text-center text-slate-700 mt-2">Start with one chapter. Go up to the full textbook when you're ready.</p>
 
           <div className="mt-10 grid md:grid-cols-2 gap-6">
+            {/* single chapter */}
             <Card>
               <CardHeader><CardTitle>Single chapter</CardTitle></CardHeader>
               <CardContent>
                 <div className="text-5xl font-extrabold">$5 <span className="text-base font-medium">USD/EUR*</span></div>
-                <p className="mt-2 text-slate-600 text-sm">*Price is set in Gumroad; regional currency may vary.</p>
+                <p className="mt-2 text-slate-600 text-sm">*Final currency/price is set in Gumroad.</p>
                 <ul className="mt-4 space-y-2 text-slate-700">
-                  <li className="flex gap-2"><Check className="h-5 w-5 text-emerald-600" /> One textbook chapter</li>
-                  <li className="flex gap-2"><Check className="h-5 w-5 text-emerald-600" /> Anki-ready .apkg</li>
-                  <li className="flex gap-2"><Check className="h-5 w-5 text-emerald-600" /> Keep forever</li>
+                  <li className="flex gap-2"><Check className="h-5 w-5 text-emerald-600" /> One chapter/section</li>
+                  <li className="flex gap-2"><Check className="h-5 w-5 text-emerald-600" /> Anki .apkg download</li>
+                  <li className="flex gap-2"><Check className="h-5 w-5 text-emerald-600" /> Keep it forever</li>
                 </ul>
               </CardContent>
             </Card>
+
+            {/* full textbooks */}
             <Card>
-              <CardHeader><CardTitle>Build-your-own bundle</CardTitle></CardHeader>
-              <CardContent>
-                <p className="text-slate-700">
-                  Buy only the chapters you need this week — anatomy lab, midterm, or boards prep.
-                </p>
-                <p className="mt-4 text-slate-600 text-sm">
-                  Full textbooks (all chapters) will get their own Gumroad products later at different prices.
+              <CardHeader><CardTitle>Full textbook options</CardTitle></CardHeader>
+              <CardContent className="space-y-3">
+                <p className="text-slate-700 text-sm">Buy everything for that book in one go.</p>
+                <Button href={dyceFull.url} className="w-full">{dyceFull.title}</Button>
+                <Button href={wheaterFull.url} variant="outline" className="w-full">
+                  {wheaterFull.title}
+                </Button>
+                <p className="text-xs text-slate-500">
+                  Cunningham full-textbook bundle will be added once all sections are uploaded.
                 </p>
               </CardContent>
             </Card>
           </div>
+        </div>
+      </section>
+
+      {/* SUBJECTS with dropdowns */}
+      <section id="subjects" className="py-16 bg-white border-t scroll-mt-24">
+        <div className="mx-auto max-w-6xl px-4 space-y-6">
+          <h2 className="text-3xl md:text-4xl font-bold">Subjects & deck lines</h2>
+          <p className="text-slate-700">Open the textbook you’re using and grab just the chapter you need.</p>
+
+          {/* Dyce */}
+          <details className="border rounded-xl overflow-hidden bg-slate-50">
+            <summary className="cursor-pointer px-4 py-3 flex items-center justify-between gap-4">
+              <span className="font-semibold">Dyce, Sack & Wensing’s Textbook of Veterinary Anatomy (Ch. 1–38)</span>
+              <span className="text-sm text-slate-500">Click to expand</span>
+            </summary>
+            <div className="p-4 grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+              {dyceChapters.map((ch) => (
+                <Card key={ch.url}>
+                  <CardHeader className="pb-2">
+                    <CardTitle className="text-sm">{ch.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <Button href={ch.url} className="w-full">Get this deck</Button>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </details>
+
+          {/* Wheater */}
+          <details className="border rounded-xl overflow-hidden bg-slate-50">
+            <summary className="cursor-pointer px-4 py-3 flex items-center justify-between gap-4">
+              <span className="font-semibold">Wheater’s Functional Histology</span>
+              <span className="text-sm text-slate-500">Click to expand</span>
+            </summary>
+            <div className="p-4 grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+              {wheaterParts.map((part) => (
+                <Card key={part.url}>
+                  <CardHeader className="pb-2">
+                    <CardTitle className="text-sm">{part.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <Button href={part.url} className="w-full">Get this deck</Button>
+                  </CardContent>
+                </Card>
+              ))}
+              <Card>
+                <CardHeader className="pb-2">
+                  <CardTitle className="text-sm">{wheaterFull.title}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <Button href={wheaterFull.url} className="w-full">Get full textbook</Button>
+                </CardContent>
+              </Card>
+            </div>
+          </details>
+
+          {/* Cunningham */}
+          <details className="border rounded-xl overflow-hidden bg-slate-50">
+            <summary className="cursor-pointer px-4 py-3 flex items-center justify-between gap-4">
+              <span className="font-semibold">Cunningham’s Veterinary Physiology (sections 1–6 so far)</span>
+              <span className="text-sm text-slate-500">Click to expand</span>
+            </summary>
+            <div className="p-4 grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+              {cunninghamSections.map((sec) => (
+                <Card key={sec.url}>
+                  <CardHeader className="pb-2">
+                    <CardTitle className="text-sm">{sec.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <Button href={sec.url} className="w-full">Get this deck</Button>
+                  </CardContent>
+                </Card>
+              ))}
+              <p className="text-xs text-slate-500 md:col-span-3">
+                More Cunningham sections are being added — check back or email hello@vetdecks.com.
+              </p>
+            </div>
+          </details>
         </div>
       </section>
 
@@ -201,8 +293,8 @@ export default function Page() {
           <h2 className="text-3xl md:text-4xl font-bold text-center">Frequently asked questions</h2>
           <div className="mt-8 space-y-4">
             <Card><CardContent className="pt-6"><strong>Do I need Anki?</strong><br />Yes — downloads are standard .apkg files.</CardContent></Card>
-            <Card><CardContent className="pt-6"><strong>Are diagrams included?</strong><br />No — current decks focus on text-based, exam-style recall to stay copyright-safe.</CardContent></Card>
-            <Card><CardContent className="pt-6"><strong>Can I request another textbook?</strong><br />Email hello@vetdecks.com and say what you need.</CardContent></Card>
+            <Card><CardContent className="pt-6"><strong>Are diagrams included?</strong><br />Not right now — decks are text-first to stay copyright-safe.</CardContent></Card>
+            <Card><CardContent className="pt-6"><strong>Can I request another textbook?</strong><br />Yes — email hello@vetdecks.com with the book and chapters.</CardContent></Card>
           </div>
         </div>
       </section>
@@ -233,8 +325,8 @@ export default function Page() {
           <div className="mt-10 grid md:grid-cols-3 gap-6">
             {[
               "Clearer than the textbook for quick review.",
-              "I can buy only the chapters I'm in right now.",
-              "Nice to have species differences actually called out.",
+              "I can buy only the chapters I'm on.",
+              "Good for anatomy + histology together.",
             ].map((quote) => (
               <Card key={quote}>
                 <CardContent className="pt-6 text-slate-800">
