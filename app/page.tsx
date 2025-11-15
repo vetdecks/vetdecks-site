@@ -261,7 +261,7 @@ export default function Page() {
           {/* Wheater */}
           <details className="border rounded-xl overflow-hidden bg-slate-50">
             <summary className="cursor-pointer px-4 py-3 flex items-center justify-between gap-4">
-              <span className="font-semibold">Wheater’s Functional Histology</span>
+              <span className="font-semibold">Wheater’s Functional Histology (Parts 1-3)</span>
               <span className="text-sm text-slate-500">Click to expand</span>
             </summary>
             <div className="p-4 grid sm:grid-cols-2 md:grid-cols-3 gap-4">
