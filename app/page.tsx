@@ -104,7 +104,7 @@ export default function Page() {
     <main className="min-h-screen text-slate-900">
       {/* top banner */}
       <div className="bg-amber-50 border-b border-amber-200 text-amber-800 text-center text-sm py-2 px-4">
-        VetDecks is new 🎉 Dyce, Cunningham & Wheater decks are done. Zachary & Miller are on their way and will be completed soon.
+        VetDecks is new 🎉 Dyce, Cunningham & Wheater decks are ready. Zachary & Miller are on their way! 
       </div>
 
       {/* Nav */}
