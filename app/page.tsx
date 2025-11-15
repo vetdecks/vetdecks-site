@@ -68,7 +68,7 @@ export default function Page() {
     url: "https://vetdecks.gumroad.com/l/Part-1-3-wheater",
   };
 
-  // Cunningham sections
+  // Cunningham sections 1–10
   const cunninghamSections = [
     { title: "Section 1 – Cunningham", url: "https://vetdecks.gumroad.com/l/section-1-cunningham" },
     { title: "Section 2 – Cunningham", url: "https://vetdecks.gumroad.com/l/section-2-cunningham" },
@@ -76,13 +76,35 @@ export default function Page() {
     { title: "Section 4 – Cunningham", url: "https://vetdecks.gumroad.com/l/section-4-cunningham" },
     { title: "Section 5 – Cunningham", url: "https://vetdecks.gumroad.com/l/section-5-cunningham" },
     { title: "Section 6 – Cunningham", url: "https://vetdecks.gumroad.com/l/section-6-cunningham" },
+    { title: "Section 7 – Cunningham", url: "https://vetdecks.gumroad.com/l/section-7-cunningham" },
+    { title: "Section 8 – Cunningham", url: "https://vetdecks.gumroad.com/l/section-8-cunningham" },
+    { title: "Section 9 – Cunningham", url: "https://vetdecks.gumroad.com/l/section-9-cunningham" },
+    { title: "Section 10 – Cunningham", url: "https://vetdecks.gumroad.com/l/section-10-cunningham" },
+  ];
+
+  const cunninghamFull = {
+    title: "Cunningham’s Veterinary Physiology — full textbook (Sections 1–10)",
+    url: "https://vetdecks.gumroad.com/l/sections-1-10-cunningham",
+  };
+
+  // Miller's Anatomy of the Dog – chapters 1–4
+  const millerChapters = [
+    { title: "Ch. 1 – Miller", url: "https://vetdecks.gumroad.com/l/ch-1-miller" },
+    { title: "Ch. 2 – Miller", url: "https://vetdecks.gumroad.com/l/ch-2-miller" },
+    { title: "Ch. 3 – Miller", url: "https://vetdecks.gumroad.com/l/ch-3-miller" },
+    { title: "Ch. 4 – Miller", url: "https://vetdecks.gumroad.com/l/ch-4-miller" },
+  ];
+
+  // Zachary’s Pathologic Basis of Veterinary Disease – section 1
+  const zacharySections = [
+    { title: "Section 1 – Zachary", url: "https://vetdecks.gumroad.com/l/section-1-zachary" },
   ];
 
   return (
     <main className="min-h-screen text-slate-900">
       {/* top banner */}
       <div className="bg-amber-50 border-b border-amber-200 text-amber-800 text-center text-sm py-2 px-4">
-        VetDecks is new 🎉 Dyce Anatomy chapters 1–38 are live. Wheater + Cunningham started. More decks coming soon.
+        VetDecks is new 🎉 Dyce, Cunningham & Wheater decks are done. Zachary & Miller are on their way and will be completed soon.
       </div>
 
       {/* Nav */}
@@ -195,13 +217,15 @@ export default function Page() {
               <CardHeader><CardTitle>Full textbook options</CardTitle></CardHeader>
               <CardContent className="space-y-3">
                 <p className="text-slate-700 text-sm">Buy everything for that book in one go.</p>
-                <Button href={dyceFull.url} className="w-full">{dyceFull.title}</Button>
+                <Button href={dyceFull.url} className="w-full">
+                  {dyceFull.title}
+                </Button>
+                <Button href={cunninghamFull.url} variant="outline" className="w-full">
+                  {cunninghamFull.title}
+                </Button>
                 <Button href={wheaterFull.url} variant="outline" className="w-full">
                   {wheaterFull.title}
                 </Button>
-                <p className="text-xs text-slate-500">
-                  Cunningham full-textbook bundle will be added once all sections are uploaded.
-                </p>
               </CardContent>
             </Card>
           </div>
@@ -265,7 +289,7 @@ export default function Page() {
           {/* Cunningham */}
           <details className="border rounded-xl overflow-hidden bg-slate-50">
             <summary className="cursor-pointer px-4 py-3 flex items-center justify-between gap-4">
-              <span className="font-semibold">Cunningham’s Veterinary Physiology (sections 1–6 so far)</span>
+              <span className="font-semibold">Cunningham’s Veterinary Physiology (Sections 1–10)</span>
               <span className="text-sm text-slate-500">Click to expand</span>
             </summary>
             <div className="p-4 grid sm:grid-cols-2 md:grid-cols-3 gap-4">
@@ -280,7 +304,53 @@ export default function Page() {
                 </Card>
               ))}
               <p className="text-xs text-slate-500 md:col-span-3">
-                More Cunningham sections are being added — check back or email hello@vetdecks.com.
+                All 10 Cunningham sections are available. The full-textbook bundle is listed under “Full textbook options” above.
+              </p>
+            </div>
+          </details>
+
+          {/* Miller */}
+          <details className="border rounded-xl overflow-hidden bg-slate-50">
+            <summary className="cursor-pointer px-4 py-3 flex items-center justify-between gap-4">
+              <span className="font-semibold">Miller’s Anatomy of the Dog (Ch. 1–4 so far)</span>
+              <span className="text-sm text-slate-500">Click to expand</span>
+            </summary>
+            <div className="p-4 grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+              {millerChapters.map((ch) => (
+                <Card key={ch.url}>
+                  <CardHeader className="pb-2">
+                    <CardTitle className="text-sm">{ch.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <Button href={ch.url} className="w-full">Get this deck</Button>
+                  </CardContent>
+                </Card>
+              ))}
+              <p className="text-xs text-slate-500 md:col-span-3">
+                More Miller chapters are in progress — Zachary & Miller will both expand over time.
+              </p>
+            </div>
+          </details>
+
+          {/* Zachary */}
+          <details className="border rounded-xl overflow-hidden bg-slate-50">
+            <summary className="cursor-pointer px-4 py-3 flex items-center justify-between gap-4">
+              <span className="font-semibold">Zachary’s Pathologic Basis of Veterinary Disease (Section 1 so far)</span>
+              <span className="text-sm text-slate-500">Click to expand</span>
+            </summary>
+            <div className="p-4 grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+              {zacharySections.map((sec) => (
+                <Card key={sec.url}>
+                  <CardHeader className="pb-2">
+                    <CardTitle className="text-sm">{sec.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <Button href={sec.url} className="w-full">Get this deck</Button>
+                  </CardContent>
+                </Card>
+              ))}
+              <p className="text-xs text-slate-500 md:col-span-3">
+                More Zachary pathology sections will be added as they’re completed.
               </p>
             </div>
           </details>
@@ -321,12 +391,12 @@ export default function Page() {
       {/* Testimonials */}
       <section className="py-16 bg-white border-t">
         <div className="mx-auto max-w-6xl px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center">What students are saying</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-center">What students are saying...</h2>
           <div className="mt-10 grid md:grid-cols-3 gap-6">
             {[
               "Clearer than the textbook for quick review.",
-              "I can buy only the chapters I'm on.",
-              "Good for anatomy + histology together.",
+              "The mix of question difficulties really tests my knowledge — it feels like a full mock exam for each chapter.",
+              "Super easy to use and filter — I can jump straight to the topics I’m weakest in without wasting time.",
             ].map((quote) => (
               <Card key={quote}>
                 <CardContent className="pt-6 text-slate-800">
