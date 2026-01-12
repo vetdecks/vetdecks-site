@@ -107,7 +107,7 @@ export default function Page() {
     url: "https://vetdecks.gumroad.com/l/Section-1-3-zachary",
   };
 
-  // Dunlop Veterinary Pathophysiology– chapters 1–8
+  // Dunlop – chapters 1–13 + full (1–13)
   const dunlopChapters = [
     { title: "Ch. 1 – Dunlop", url: "https://vetdecks.gumroad.com/l/ch-1-dunlop" },
     { title: "Ch. 2 – Dunlop", url: "https://vetdecks.gumroad.com/l/ch-2-dunlop" },
@@ -117,6 +117,22 @@ export default function Page() {
     { title: "Ch. 6 – Dunlop", url: "https://vetdecks.gumroad.com/l/ch-6-dunlop" },
     { title: "Ch. 7 – Dunlop", url: "https://vetdecks.gumroad.com/l/ch-7-dunlop" },
     { title: "Ch. 8 – Dunlop", url: "https://vetdecks.gumroad.com/l/ch-8-dunlop" },
+    { title: "Ch. 9 – Dunlop", url: "https://vetdecks.gumroad.com/l/ch-9-dunlop" },
+    { title: "Ch. 10 – Dunlop", url: "https://vetdecks.gumroad.com/l/ch-10-dunlop" },
+    { title: "Ch. 11 – Dunlop", url: "https://vetdecks.gumroad.com/l/ch-11-dunlop" },
+    { title: "Ch. 12 – Dunlop", url: "https://vetdecks.gumroad.com/l/ch-12-dunlop" },
+    { title: "Ch. 13 – Dunlop", url: "https://vetdecks.gumroad.com/l/ch-13-dunlop" },
+  ];
+  const dunlopFull = {
+    title: "Dunlop — full bundle (Ch. 1–13)",
+    url: "https://vetdecks.gumroad.com/l/ch-1-13-dunlop",
+  };
+
+  // Fossum – chapters 1–3
+  const fossumChapters = [
+    { title: "Ch. 1 – Fossum", url: "https://vetdecks.gumroad.com/l/ch-1-fossum" },
+    { title: "Ch. 2 – Fossum", url: "https://vetdecks.gumroad.com/l/ch-2-fossum" },
+    { title: "Ch. 3 – Fossum", url: "https://vetdecks.gumroad.com/l/ch-3-fossum" },
   ];
 
   // Free starter decks (first decks for each book)
@@ -192,9 +208,7 @@ export default function Page() {
               </button>
             </div>
             <div className="p-5 space-y-3">
-              <p className="text-slate-700">
-                Wishing you a happy and productive 2026.
-              </p>
+              <p className="text-slate-700">Wishing you a happy and productive 2026.</p>
               <p className="text-slate-700">
                 Imagine how much more productive 2026 could be with ready-made Anki decks mapped to your textbooks.
               </p>
@@ -203,9 +217,7 @@ export default function Page() {
                   Grab the free starter decks
                 </Button>
               </div>
-              <p className="text-xs text-slate-500">
-                (You’ll only see this once.)
-              </p>
+              <p className="text-xs text-slate-500">(You’ll only see this once.)</p>
             </div>
           </div>
         </div>
@@ -228,7 +240,9 @@ export default function Page() {
           </nav>
           <div className="flex items-center gap-2">
             <Button variant="ghost" href="#pricing">Get decks</Button>
-            <Button href="#free-starters" className="bg-sky-600 hover:bg-sky-700">Get free starter decks</Button>
+            <Button href="#free-starters" className="bg-sky-600 hover:bg-sky-700">
+              Get free starter decks
+            </Button>
           </div>
         </div>
       </header>
@@ -247,10 +261,12 @@ export default function Page() {
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <Button href="#subjects">Browse decks</Button>
-              <Button variant="outline" href="#free-starters">Download free starter decks</Button>
+              <Button variant="outline" href="#free-starters">
+                Download free starter decks
+              </Button>
             </div>
             <ul className="mt-6 space-y-2 text-slate-700">
-              <li className="flex gap-2"><Check className="h-5 w-5 text-sky-600" /> Directly mapped from popular vet textbooks</li>
+              <li className="flex gap-2"><Check className="h-5 w-5 text-sky-600" /> Directly mapped to popular vet texts</li>
               <li className="flex gap-2"><Check className="h-5 w-5 text-sky-600" /> Basic facts → clinical reasoning</li>
               <li className="flex gap-2"><Check className="h-5 w-5 text-sky-600" /> Copyright-safe, text-first cards</li>
             </ul>
@@ -290,9 +306,7 @@ export default function Page() {
                 Download a free starter deck for your current textbook. If you like the format, grab the next chapters instantly.
               </p>
             </div>
-            <div className="text-sm text-slate-500">
-              No email required. Instant Gumroad download.
-            </div>
+            <div className="text-sm text-slate-500">No email required. Instant Gumroad download.</div>
           </div>
 
           <div className="mt-8 grid md:grid-cols-4 gap-6">
@@ -323,10 +337,10 @@ export default function Page() {
           <h2 className="text-3xl md:text-4xl font-bold text-center">Study smarter, retain longer</h2>
           <div className="mt-10 grid md:grid-cols-4 gap-6">
             {[
-              ["Built for vet curricula", "Organized by textbook, subject, chapter, and difficulty."],
+              ["Built for vet curricula", "Organized by course, species, and textbook."],
               ["Exam-style prompts", "Higher-order and recall cards in the same deck."],
               ["Buy only what you need", "Single chapter or full textbook bundles."],
-              ["Constantly expanding", "More pharmacology, small animal and large animal medicine in progress."],
+              ["Constantly expanding", "More anatomy, physiology, pathology in progress."],
             ].map(([title, body]) => (
               <Card key={title}>
                 <CardHeader><CardTitle className="text-lg">{title}</CardTitle></CardHeader>
@@ -348,7 +362,7 @@ export default function Page() {
             <Card>
               <CardHeader><CardTitle>Single chapter</CardTitle></CardHeader>
               <CardContent>
-                <div className="text-5xl font-extrabold">$2-5 <span className="text-base font-medium">USD/EUR*</span></div>
+                <div className="text-5xl font-extrabold">$5 <span className="text-base font-medium">USD/EUR*</span></div>
                 <p className="mt-2 text-slate-600 text-sm">*Final currency/price is set in Gumroad.</p>
                 <ul className="mt-4 space-y-2 text-slate-700">
                   <li className="flex gap-2"><Check className="h-5 w-5 text-emerald-600" /> One chapter/section</li>
@@ -376,6 +390,9 @@ export default function Page() {
                 </Button>
                 <Button href={zacharyFull.url} variant="outline" className={fullOptionBtnClass}>
                   {zacharyFull.title}
+                </Button>
+                <Button href={dunlopFull.url} variant="outline" className={fullOptionBtnClass}>
+                  {dunlopFull.title}
                 </Button>
 
                 <p className="text-xs text-slate-500">
@@ -504,7 +521,7 @@ export default function Page() {
           {/* Dunlop */}
           <details className="border rounded-xl overflow-hidden bg-slate-50">
             <summary className="cursor-pointer px-4 py-3 flex items-center justify-between gap-4">
-              <span className="font-semibold">Dunlop (Ch. 1–8)</span>
+              <span className="font-semibold">Dunlop’s Veterinary Pathophysiology (Ch. 1–13)</span>
               <span className="text-sm text-slate-500">Click to expand</span>
             </summary>
             <div className="p-4 grid sm:grid-cols-2 md:grid-cols-3 gap-4">
@@ -518,9 +535,20 @@ export default function Page() {
                     {ch.url === "https://vetdecks.gumroad.com/l/ch-4-dunlop" && (
                       <div className="text-xs text-emerald-700">Free starter deck</div>
                     )}
+                    {ch.url === "https://vetdecks.gumroad.com/l/ch-13-dunlop" && (
+                      <div className="text-xs text-slate-600">Chapter 13: Homeostatic & toxic disorders</div>
+                    )}
                   </CardContent>
                 </Card>
               ))}
+              <Card>
+                <CardHeader className="pb-2">
+                  <CardTitle className="text-sm">{dunlopFull.title}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <Button href={dunlopFull.url} className="w-full">Get full bundle</Button>
+                </CardContent>
+              </Card>
             </div>
           </details>
 
@@ -543,6 +571,32 @@ export default function Page() {
               ))}
               <p className="text-xs text-slate-500 md:col-span-3">
                 Miller is in progress. Fossum’s Small Animal Surgery is also on the way.
+              </p>
+            </div>
+          </details>
+
+          {/* Fossum */}
+          <details className="border rounded-xl overflow-hidden bg-slate-50">
+            <summary className="cursor-pointer px-4 py-3 flex items-center justify-between gap-4">
+              <span className="font-semibold">Fossum’s Small Animal Surgery (Ch. 1–3 so far)</span>
+              <span className="text-sm text-slate-500">Click to expand</span>
+            </summary>
+            <div className="p-4 grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+              {fossumChapters.map((ch) => (
+                <Card key={ch.url}>
+                  <CardHeader className="pb-2">
+                    <CardTitle className="text-sm">{ch.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-2">
+                    <Button href={ch.url} className="w-full">Get this deck</Button>
+                    {ch.url === "https://vetdecks.gumroad.com/l/ch-1-fossum" && (
+                      <div className="text-xs text-slate-600">Chapter 1: Principles of surgical asepsis</div>
+                    )}
+                  </CardContent>
+                </Card>
+              ))}
+              <p className="text-xs text-slate-500 md:col-span-3">
+                Fossum is in progress — more chapters will be added as they’re completed.
               </p>
             </div>
           </details>
