@@ -128,7 +128,7 @@ export default function Page() {
     url: "https://vetdecks.gumroad.com/l/ch-1-13-dunlop",
   };
 
-  // Fossum – chapters 1–3
+  // Fossum – chapters 1–29
   const fossumChapters = [
     { title: "Ch. 1 – Fossum", url: "https://vetdecks.gumroad.com/l/ch-1-fossum" },
     { title: "Ch. 2 – Fossum", url: "https://vetdecks.gumroad.com/l/ch-2-fossum" },
