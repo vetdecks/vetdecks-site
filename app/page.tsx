@@ -128,7 +128,7 @@ export default function Page() {
     url: "https://vetdecks.gumroad.com/l/ch-1-13-dunlop",
   };
 
-  // Fossum – chapters 1–29
+  // Fossum – chapters 1–34 (exception: Ch. 30–31 share one link)
   const fossumChapters = [
     { title: "Ch. 1 – Fossum", url: "https://vetdecks.gumroad.com/l/ch-1-fossum" },
     { title: "Ch. 2 – Fossum", url: "https://vetdecks.gumroad.com/l/ch-2-fossum" },
@@ -159,6 +159,11 @@ export default function Page() {
     { title: "Ch. 27 – Fossum", url: "https://vetdecks.gumroad.com/l/ch-27-fossum" },
     { title: "Ch. 28 – Fossum", url: "https://vetdecks.gumroad.com/l/ch-28-fossum" },
     { title: "Ch. 29 – Fossum", url: "https://vetdecks.gumroad.com/l/ch-29-fossum" },
+
+    { title: "Ch. 30–31 – Fossum", url: "https://vetdecks.gumroad.com/l/ch-30-31-fossum" },
+    { title: "Ch. 32 – Fossum", url: "https://vetdecks.gumroad.com/l/ch-32-fossum" },
+    { title: "Ch. 33 – Fossum", url: "https://vetdecks.gumroad.com/l/ch-33-fossum" },
+    { title: "Ch. 34 – Fossum", url: "https://vetdecks.gumroad.com/l/ch-34-fossum" },
   ];
 
   // Free starter decks (first decks for each book)
@@ -262,6 +267,7 @@ export default function Page() {
             <a href="#features" className="hover:opacity-80">Features</a>
             <a href="#pricing" className="hover:opacity-80">Pricing</a>
             <a href="#subjects" className="hover:opacity-80">Subjects</a>
+            <a href="#custom" className="hover:opacity-80">Custom decks</a>
             <a href="#faq" className="hover:opacity-80">FAQ</a>
           </nav>
           <div className="flex items-center gap-2">
@@ -381,14 +387,17 @@ export default function Page() {
       <section id="pricing" className="py-20 bg-slate-50 border-t scroll-mt-24">
         <div className="mx-auto max-w-6xl px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center">Simple, student-friendly pricing</h2>
-          <p className="text-center text-slate-700 mt-2">Start with a free starter deck. Then buy only the chapters you need.</p>
+          <p className="text-center text-slate-700 mt-2">
+            Start with a free starter deck, then buy only what you need. Most decks range from{" "}
+            <strong>$0–$10</strong> per chapter/section.
+          </p>
 
           <div className="mt-10 grid md:grid-cols-2 gap-6">
             {/* single chapter */}
             <Card>
-              <CardHeader><CardTitle>Single chapter</CardTitle></CardHeader>
+              <CardHeader><CardTitle>Single chapter / section</CardTitle></CardHeader>
               <CardContent>
-                <div className="text-5xl font-extrabold">$5 <span className="text-base font-medium">USD/EUR*</span></div>
+                <div className="text-5xl font-extrabold">$0–$10 <span className="text-base font-medium">USD/EUR*</span></div>
                 <p className="mt-2 text-slate-600 text-sm">*Final currency/price is set in Gumroad.</p>
                 <ul className="mt-4 space-y-2 text-slate-700">
                   <li className="flex gap-2"><Check className="h-5 w-5 text-emerald-600" /> One chapter/section</li>
@@ -404,7 +413,6 @@ export default function Page() {
               <CardContent className="space-y-3">
                 <p className="text-slate-700 text-sm">Buy everything for that book in one go.</p>
 
-                {/* all-white buttons */}
                 <Button href={dyceFull.url} variant="outline" className={fullOptionBtnClass}>
                   {dyceFull.title}
                 </Button>
@@ -596,7 +604,7 @@ export default function Page() {
                 </Card>
               ))}
               <p className="text-xs text-slate-500 md:col-span-3">
-                Miller is in progress. Fossum’s Small Animal Surgery is also on the way.
+                Miller is in progress. Fossum’s Small Animal Surgery is also in progress.
               </p>
             </div>
           </details>
@@ -604,7 +612,7 @@ export default function Page() {
           {/* Fossum */}
           <details className="border rounded-xl overflow-hidden bg-slate-50">
             <summary className="cursor-pointer px-4 py-3 flex items-center justify-between gap-4">
-              <span className="font-semibold">Fossum’s Small Animal Surgery (Ch. 1–3 so far)</span>
+              <span className="font-semibold">Fossum’s Small Animal Surgery (Ch. 1–34)</span>
               <span className="text-sm text-slate-500">Click to expand</span>
             </summary>
             <div className="p-4 grid sm:grid-cols-2 md:grid-cols-3 gap-4">
@@ -622,10 +630,56 @@ export default function Page() {
                 </Card>
               ))}
               <p className="text-xs text-slate-500 md:col-span-3">
-                Fossum is in progress — more chapters will be added as they’re completed.
+                Fossum is in progress — chapters are added as they’re completed.
               </p>
             </div>
           </details>
+        </div>
+      </section>
+
+      {/* Custom deck requests */}
+      <section id="custom" className="py-16 bg-white border-t scroll-mt-24">
+        <div className="mx-auto max-w-6xl px-4">
+          <div className="grid md:grid-cols-2 gap-8 items-start">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold">Custom decks (made from your materials)</h2>
+              <p className="mt-3 text-slate-700">
+                Want Anki decks made from your lecture slides, handouts, or personal digital notes?
+                Send me the material and I’ll build the deck for you — so you don’t have to spend hours converting
+                content into flashcards.
+              </p>
+              <ul className="mt-5 space-y-2 text-slate-700">
+                <li className="flex gap-2"><Check className="h-5 w-5 text-emerald-600" /> You send the material (PDF, slides, notes)</li>
+                <li className="flex gap-2"><Check className="h-5 w-5 text-emerald-600" /> I review scope + complexity</li>
+                <li className="flex gap-2"><Check className="h-5 w-5 text-emerald-600" /> You get a quote + turnaround time</li>
+                <li className="flex gap-2"><Check className="h-5 w-5 text-emerald-600" /> Delivered as an Anki .apkg</li>
+              </ul>
+            </div>
+
+            <Card className="border-slate-200">
+              <CardHeader>
+                <CardTitle>Request a quote</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                <p className="text-slate-700 text-sm">
+                  Email <strong>info@vetdecks.com</strong> with:
+                </p>
+                <ul className="text-sm text-slate-700 list-disc pl-5 space-y-1">
+                  <li>Course + topic</li>
+                  <li>Material type (slides/notes/PDF)</li>
+                  <li>Rough size (pages or slide count)</li>
+                  <li>Deadline (if any)</li>
+                </ul>
+                <Button href="mailto:info@vetdecks.com?subject=Custom%20deck%20request%20(quote)&body=Hi%20VetDecks%2C%0A%0ACourse%3A%20%0ATopic%3A%20%0AMaterials%3A%20%0ASize%20(pages%2Fslides)%3A%20%0ADeadline%3A%20%0A%0AThanks!"
+                  className="w-full">
+                  Email for a quote
+                </Button>
+                <p className="text-xs text-slate-500">
+                  The goal is simple: save you time and give you a deck you can start using immediately.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
         </div>
       </section>
 
@@ -636,7 +690,7 @@ export default function Page() {
           <div className="mt-8 space-y-4">
             <Card><CardContent className="pt-6"><strong>Do I need Anki?</strong><br />Yes — downloads are standard .apkg files.</CardContent></Card>
             <Card><CardContent className="pt-6"><strong>Are diagrams included?</strong><br />Not right now — decks are text-first to stay copyright-safe.</CardContent></Card>
-            <Card><CardContent className="pt-6"><strong>Can I request another textbook?</strong><br />Yes — email hello@vetdecks.com with the book and chapters.</CardContent></Card>
+            <Card><CardContent className="pt-6"><strong>Can I request another textbook?</strong><br />Yes — email <a className="underline" href="mailto:info@vetdecks.com">info@vetdecks.com</a> with the book and chapters.</CardContent></Card>
           </div>
         </div>
       </section>
@@ -674,15 +728,25 @@ export default function Page() {
           <div>
             <div className="font-semibold">Company</div>
             <ul className="mt-2 space-y-2 text-slate-600">
-              <li><a href="mailto:hello@vetdecks.com" className="hover:underline">Contact</a></li>
+              <li><a href="mailto:info@vetdecks.com" className="hover:underline">Contact</a></li>
               <li><a href="#pricing" className="hover:underline">Pricing</a></li>
+              <li><a href="#custom" className="hover:underline">Custom decks</a></li>
             </ul>
           </div>
           <div>
             <div className="font-semibold">Stay in touch</div>
             <ul className="mt-2 space-y-2 text-slate-600">
-              <li><a href="mailto:hello@vetdecks.com" className="hover:underline">Email</a></li>
-              <li><a href="https://github.com/vetdecks/vetdecks-site" className="hover:underline" target="_blank" rel="noreferrer">GitHub</a></li>
+              <li><a href="mailto:info@vetdecks.com" className="hover:underline">Email</a></li>
+              <li>
+                <a
+                  href="https://github.com/vetdecks/vetdecks-site"
+                  className="hover:underline"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  GitHub
+                </a>
+              </li>
             </ul>
           </div>
         </div>
@@ -692,4 +756,4 @@ export default function Page() {
       </footer>
     </main>
   );
-}// deploy ping Thu Feb 19 18:31:38 CET 2026
+}
