@@ -128,7 +128,7 @@ export default function Page() {
     url: "https://vetdecks.gumroad.com/l/ch-1-13-dunlop",
   };
 
-  // Fossum – chapters 1–34 (exception: Ch. 30–31 share one link)
+  // Fossum – chapters 1–44 (exception: Ch. 30–31 share one link)
   const fossumChapters = [
     { title: "Ch. 1 – Fossum", url: "https://vetdecks.gumroad.com/l/ch-1-fossum" },
     { title: "Ch. 2 – Fossum", url: "https://vetdecks.gumroad.com/l/ch-2-fossum" },
@@ -159,12 +159,27 @@ export default function Page() {
     { title: "Ch. 27 – Fossum", url: "https://vetdecks.gumroad.com/l/ch-27-fossum" },
     { title: "Ch. 28 – Fossum", url: "https://vetdecks.gumroad.com/l/ch-28-fossum" },
     { title: "Ch. 29 – Fossum", url: "https://vetdecks.gumroad.com/l/ch-29-fossum" },
-
     { title: "Ch. 30–31 – Fossum", url: "https://vetdecks.gumroad.com/l/ch-30-31-fossum" },
     { title: "Ch. 32 – Fossum", url: "https://vetdecks.gumroad.com/l/ch-32-fossum" },
     { title: "Ch. 33 – Fossum", url: "https://vetdecks.gumroad.com/l/ch-33-fossum" },
     { title: "Ch. 34 – Fossum", url: "https://vetdecks.gumroad.com/l/ch-34-fossum" },
+
+    { title: "Ch. 35 – Fossum", url: "https://vetdecks.gumroad.com/l/ch-35-fossum" },
+    { title: "Ch. 36 – Fossum", url: "https://vetdecks.gumroad.com/l/ch-36-fossum" },
+    { title: "Ch. 37 – Fossum", url: "https://vetdecks.gumroad.com/l/ch-37-fossum" },
+    { title: "Ch. 38 – Fossum", url: "https://vetdecks.gumroad.com/l/ch-38-fossum" },
+    { title: "Ch. 39 – Fossum", url: "https://vetdecks.gumroad.com/l/ch-39-fossum" },
+    { title: "Ch. 40 – Fossum", url: "https://vetdecks.gumroad.com/l/ch-40-fossum" },
+    { title: "Ch. 41 – Fossum", url: "https://vetdecks.gumroad.com/l/ch-41-fossum" },
+    { title: "Ch. 42 – Fossum", url: "https://vetdecks.gumroad.com/l/ch-42-fossum" },
+    { title: "Ch. 43 – Fossum", url: "https://vetdecks.gumroad.com/l/ch-43-fossum" },
+    { title: "Ch. 44 – Fossum", url: "https://vetdecks.gumroad.com/l/ch-44-fossum" },
   ];
+
+  const fossumFull = {
+    title: "Fossum’s Small Animal Surgery — full textbook (Ch. 1–44)",
+    url: "https://vetdecks.gumroad.com/l/ch-1-44-fossum",
+  };
 
   // Free starter decks (first decks for each book)
   const freeStarters = [
@@ -256,7 +271,7 @@ export default function Page() {
 
       {/* top banner */}
       <div className="bg-amber-50 border-b border-amber-200 text-amber-800 text-center text-sm py-2 px-4">
-        VetDecks is new 🎉 Zachary & Dunlop are done. Miller + Fossum’s Small Animal Surgery are on the way. Next: Merck Vet Manual + Plumb’s Pharmacology.
+        VetDecks is new 🎉 Fossum is done. Miller + Merck are on the way. Next: Plumb’s Pharmacology.
       </div>
 
       {/* Nav */}
@@ -267,6 +282,7 @@ export default function Page() {
             <a href="#features" className="hover:opacity-80">Features</a>
             <a href="#pricing" className="hover:opacity-80">Pricing</a>
             <a href="#subjects" className="hover:opacity-80">Subjects</a>
+            <a href="#about" className="hover:opacity-80">About</a>
             <a href="#custom" className="hover:opacity-80">Custom decks</a>
             <a href="#faq" className="hover:opacity-80">FAQ</a>
           </nav>
@@ -428,9 +444,12 @@ export default function Page() {
                 <Button href={dunlopFull.url} variant="outline" className={fullOptionBtnClass}>
                   {dunlopFull.title}
                 </Button>
+                <Button href={fossumFull.url} variant="outline" className={fullOptionBtnClass}>
+                  {fossumFull.title}
+                </Button>
 
                 <p className="text-xs text-slate-500">
-                  More full-textbook bundles will be added as each book line is completed (Miller, Fossum, Merck, Plumb’s).
+                  More full-textbook bundles will be added as each book line is completed (Miller, Merck, Plumb’s).
                 </p>
               </CardContent>
             </Card>
@@ -443,6 +462,40 @@ export default function Page() {
         <div className="mx-auto max-w-6xl px-4 space-y-6">
           <h2 className="text-3xl md:text-4xl font-bold">Subjects & deck lines</h2>
           <p className="text-slate-700">Open the textbook you’re using and grab just the chapter you need.</p>
+
+          {/* Fossum */}
+          <details className="border rounded-xl overflow-hidden bg-slate-50">
+            <summary className="cursor-pointer px-4 py-3 flex items-center justify-between gap-4">
+              <span className="font-semibold">Fossum’s Small Animal Surgery (Ch. 1–44)</span>
+              <span className="text-sm text-slate-500">Click to expand</span>
+            </summary>
+            <div className="p-4 grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+              {fossumChapters.map((ch) => (
+                <Card key={ch.url}>
+                  <CardHeader className="pb-2">
+                    <CardTitle className="text-sm">{ch.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-2">
+                    <Button href={ch.url} className="w-full">Get this deck</Button>
+                    {ch.url === "https://vetdecks.gumroad.com/l/ch-1-fossum" && (
+                      <div className="text-xs text-slate-600">Chapter 1: Principles of surgical asepsis</div>
+                    )}
+                    {ch.url === "https://vetdecks.gumroad.com/l/ch-30-31-fossum" && (
+                      <div className="text-xs text-slate-600">Combined deck: Chapters 30–31</div>
+                    )}
+                  </CardContent>
+                </Card>
+              ))}
+              <Card>
+                <CardHeader className="pb-2">
+                  <CardTitle className="text-sm">{fossumFull.title}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <Button href={fossumFull.url} className="w-full">Get full textbook</Button>
+                </CardContent>
+              </Card>
+            </div>
+          </details>
 
           {/* Dyce */}
           <details className="border rounded-xl overflow-hidden bg-slate-50">
@@ -604,36 +657,58 @@ export default function Page() {
                 </Card>
               ))}
               <p className="text-xs text-slate-500 md:col-span-3">
-                Miller is in progress. Fossum’s Small Animal Surgery is also in progress.
+                Miller is in progress. Merck is on the way. Plumb’s Pharmacology is next.
               </p>
             </div>
           </details>
+        </div>
+      </section>
 
-          {/* Fossum */}
-          <details className="border rounded-xl overflow-hidden bg-slate-50">
-            <summary className="cursor-pointer px-4 py-3 flex items-center justify-between gap-4">
-              <span className="font-semibold">Fossum’s Small Animal Surgery (Ch. 1–34)</span>
-              <span className="text-sm text-slate-500">Click to expand</span>
-            </summary>
-            <div className="p-4 grid sm:grid-cols-2 md:grid-cols-3 gap-4">
-              {fossumChapters.map((ch) => (
-                <Card key={ch.url}>
-                  <CardHeader className="pb-2">
-                    <CardTitle className="text-sm">{ch.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent className="space-y-2">
-                    <Button href={ch.url} className="w-full">Get this deck</Button>
-                    {ch.url === "https://vetdecks.gumroad.com/l/ch-1-fossum" && (
-                      <div className="text-xs text-slate-600">Chapter 1: Principles of surgical asepsis</div>
-                    )}
-                  </CardContent>
-                </Card>
-              ))}
-              <p className="text-xs text-slate-500 md:col-span-3">
-                Fossum is in progress — chapters are added as they’re completed.
+      {/* ABOUT */}
+      <section id="about" className="py-16 bg-white border-t scroll-mt-24">
+        <div className="mx-auto max-w-6xl px-4">
+          <div className="grid md:grid-cols-2 gap-8 items-start">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold">About me</h2>
+              <p className="mt-3 text-slate-700">
+                Hey 👋 I’m a vet student who knows how overwhelming vet med can be. Between Dyce, Cunningham,
+                and endless lecture notes, I felt like I was drowning. To keep up, I started building my own Anki decks —
+                and they completely changed how I study.
+              </p>
+              <p className="mt-3 text-slate-700">
+                My GPA jumped (ended up at <strong>4.51</strong> 🐾📚), and for the first time I actually felt confident
+                walking into exams. That’s how <strong>VetDecks</strong> was born.
+              </p>
+              <p className="mt-3 text-slate-700">
+                I’ve wanted to be a vet since I was <strong>3</strong>. I study at the{" "}
+                <strong>University of Veterinary Medicine Budapest</strong>, I’m currently a{" "}
+                <strong>4th year</strong>, and I’m aiming for <strong>equine medicine</strong> (or mixed practice).
+              </p>
+              <p className="mt-3 text-slate-700">
+                VetDecks turns the biggest textbooks into ready-made, turbo-charged decks — packed with key facts,
+                species differences, and higher-order questions — designed to save you time and help you ace exams
+                without the burnout.
               </p>
             </div>
-          </details>
+
+            <Card className="border-slate-200">
+              <CardHeader>
+                <CardTitle>Can we add an image?</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                <p className="text-slate-700 text-sm">
+                  Yes — you can add a profile image here. Easiest way:
+                </p>
+                <ol className="text-sm text-slate-700 list-decimal pl-5 space-y-1">
+                  <li>Put a photo in <code>public/</code> (example: <code>public/about-me.jpg</code>)</li>
+                  <li>Then I’ll wire it in so it shows next to this card.</li>
+                </ol>
+                <p className="text-xs text-slate-500">
+                  If you want, upload the photo name you’ll use (or paste the filename) and I’ll add the exact code snippet.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
         </div>
       </section>
 
@@ -670,8 +745,10 @@ export default function Page() {
                   <li>Rough size (pages or slide count)</li>
                   <li>Deadline (if any)</li>
                 </ul>
-                <Button href="mailto:info@vetdecks.com?subject=Custom%20deck%20request%20(quote)&body=Hi%20VetDecks%2C%0A%0ACourse%3A%20%0ATopic%3A%20%0AMaterials%3A%20%0ASize%20(pages%2Fslides)%3A%20%0ADeadline%3A%20%0A%0AThanks!"
-                  className="w-full">
+                <Button
+                  href="mailto:info@vetdecks.com?subject=Custom%20deck%20request%20(quote)&body=Hi%20VetDecks%2C%0A%0ACourse%3A%20%0ATopic%3A%20%0AMaterials%3A%20%0ASize%20(pages%2Fslides)%3A%20%0ADeadline%3A%20%0A%0AThanks!"
+                  className="w-full"
+                >
                   Email for a quote
                 </Button>
                 <p className="text-xs text-slate-500">
@@ -730,6 +807,7 @@ export default function Page() {
             <ul className="mt-2 space-y-2 text-slate-600">
               <li><a href="mailto:info@vetdecks.com" className="hover:underline">Contact</a></li>
               <li><a href="#pricing" className="hover:underline">Pricing</a></li>
+              <li><a href="#about" className="hover:underline">About</a></li>
               <li><a href="#custom" className="hover:underline">Custom decks</a></li>
             </ul>
           </div>
