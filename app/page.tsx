@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import Button from "../components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "../components/ui/card";
 import { Check, Star, X } from "lucide-react";
+import Image from "next/image";
 
 export default function Page() {
   // --- DATA -----------------------------------------------------------------
@@ -691,26 +692,24 @@ export default function Page() {
               </p>
             </div>
 
-            <Card className="border-slate-200">
-              <CardHeader>
-                <CardTitle>Can we add an image?</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-3">
-                <p className="text-slate-700 text-sm">
-                  Yes — you can add a profile image here. Easiest way:
-                </p>
-                <ol className="text-sm text-slate-700 list-decimal pl-5 space-y-1">
-                  <li>Put a photo in <code>public/</code> (example: <code>public/about-me.jpg</code>)</li>
-                  <li>Then I’ll wire it in so it shows next to this card.</li>
-                </ol>
-                <p className="text-xs text-slate-500">
-                  If you want, upload the photo name you’ll use (or paste the filename) and I’ll add the exact code snippet.
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
+            <Card className="border-slate-200 overflow-hidden">
+  <div className="relative w-full h-72">
+    <Image
+      src="/about-me.jpg"
+      alt="VetDecks founder with a donkey"
+      fill
+      className="object-cover"
+      priority
+    />
+  </div>
+  <CardContent className="pt-5 space-y-2">
+    <div className="text-sm text-slate-500">Founder</div>
+    <div className="text-lg font-semibold">Building VetDecks from real vet student life 🐾</div>
+    <p className="text-sm text-slate-700">
+      If vet school feels overwhelming, you’re not alone — that’s exactly why I built these decks.
+    </p>
+  </CardContent>
+</Card>
 
       {/* Custom deck requests */}
       <section id="custom" className="py-16 bg-white border-t scroll-mt-24">
