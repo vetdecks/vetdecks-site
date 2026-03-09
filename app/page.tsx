@@ -268,7 +268,7 @@ export default function Page() {
             </div>
           </div>
         </div>
-      )}
+      )
 
       {/* top banner */}
       <div className="bg-amber-50 border-b border-amber-200 text-amber-800 text-center text-sm py-2 px-4">
