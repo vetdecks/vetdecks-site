@@ -1,15 +1,14 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import Image from "next/image";
 import Button from "../components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "../components/ui/card";
 import { Check, Star, X } from "lucide-react";
-import Image from "next/image";
 
 export default function Page() {
   // --- DATA -----------------------------------------------------------------
 
-  // Dyce, individual chapters 1–38
   const dyceChapters = [
     { title: "Ch. 1 – Dyce", url: "https://vetdecks.gumroad.com/l/ch-1-dyce" },
     { title: "Ch. 2 – Dyce", url: "https://vetdecks.gumroad.com/l/ch-2-dyce" },
@@ -51,24 +50,22 @@ export default function Page() {
     { title: "Ch. 38 – Dyce", url: "https://vetdecks.gumroad.com/l/ch-38-dyce" },
   ];
 
-  // full Dyce textbook
   const dyceFull = {
     title: "Dyce Anatomy — full textbook (Ch. 1–38)",
     url: "https://vetdecks.gumroad.com/l/dyce1-38",
   };
 
-  // Wheater parts + full
   const wheaterParts = [
     { title: "Part 1 – Wheater", url: "https://vetdecks.gumroad.com/l/part-1-wheater" },
     { title: "Part 2 – Wheater", url: "https://vetdecks.gumroad.com/l/Part-2-wheater" },
     { title: "Part 3 – Wheater", url: "https://vetdecks.gumroad.com/l/Part-3-wheater" },
   ];
+
   const wheaterFull = {
     title: "Wheater’s Functional Histology — full (Parts 1–3)",
     url: "https://vetdecks.gumroad.com/l/Part-1-3-wheater",
   };
 
-  // Cunningham sections 1–10 + full
   const cunninghamSections = [
     { title: "Section 1 – Cunningham", url: "https://vetdecks.gumroad.com/l/section-1-cunningham" },
     { title: "Section 2 – Cunningham", url: "https://vetdecks.gumroad.com/l/section-2-cunningham" },
@@ -81,12 +78,12 @@ export default function Page() {
     { title: "Section 9 – Cunningham", url: "https://vetdecks.gumroad.com/l/section-9-cunningham" },
     { title: "Section 10 – Cunningham", url: "https://vetdecks.gumroad.com/l/section-10-cunningham" },
   ];
+
   const cunninghamFull = {
     title: "Cunningham’s Veterinary Physiology — full textbook (Sections 1–10)",
     url: "https://vetdecks.gumroad.com/l/sections-1-10-cunningham",
   };
 
-  // Miller – chapters 1–7
   const millerChapters = [
     { title: "Ch. 1 – Miller", url: "https://vetdecks.gumroad.com/l/ch-1-miller" },
     { title: "Ch. 2 – Miller", url: "https://vetdecks.gumroad.com/l/ch-2-miller" },
@@ -97,18 +94,17 @@ export default function Page() {
     { title: "Ch. 7 – Miller", url: "https://vetdecks.gumroad.com/l/ch-7-miller" },
   ];
 
-  // Zachary – sections 1–3 + full (1–3)
   const zacharySections = [
     { title: "Section 1 – Zachary", url: "https://vetdecks.gumroad.com/l/section-1-zachary" },
     { title: "Section 2 – Zachary", url: "https://vetdecks.gumroad.com/l/section-2-zachary" },
     { title: "Section 3 – Zachary", url: "https://vetdecks.gumroad.com/l/Section-3-zachary" },
   ];
+
   const zacharyFull = {
     title: "Zachary — full bundle (Sections 1–3)",
     url: "https://vetdecks.gumroad.com/l/Section-1-3-zachary",
   };
 
-  // Dunlop – chapters 1–13 + full (1–13)
   const dunlopChapters = [
     { title: "Ch. 1 – Dunlop", url: "https://vetdecks.gumroad.com/l/ch-1-dunlop" },
     { title: "Ch. 2 – Dunlop", url: "https://vetdecks.gumroad.com/l/ch-2-dunlop" },
@@ -124,12 +120,12 @@ export default function Page() {
     { title: "Ch. 12 – Dunlop", url: "https://vetdecks.gumroad.com/l/ch-12-dunlop" },
     { title: "Ch. 13 – Dunlop", url: "https://vetdecks.gumroad.com/l/ch-13-dunlop" },
   ];
+
   const dunlopFull = {
     title: "Dunlop — full bundle (Ch. 1–13)",
     url: "https://vetdecks.gumroad.com/l/ch-1-13-dunlop",
   };
 
-  // Fossum – chapters 1–44 (exception: Ch. 30–31 share one link)
   const fossumChapters = [
     { title: "Ch. 1 – Fossum", url: "https://vetdecks.gumroad.com/l/ch-1-fossum" },
     { title: "Ch. 2 – Fossum", url: "https://vetdecks.gumroad.com/l/ch-2-fossum" },
@@ -164,7 +160,6 @@ export default function Page() {
     { title: "Ch. 32 – Fossum", url: "https://vetdecks.gumroad.com/l/ch-32-fossum" },
     { title: "Ch. 33 – Fossum", url: "https://vetdecks.gumroad.com/l/ch-33-fossum" },
     { title: "Ch. 34 – Fossum", url: "https://vetdecks.gumroad.com/l/ch-34-fossum" },
-
     { title: "Ch. 35 – Fossum", url: "https://vetdecks.gumroad.com/l/ch-35-fossum" },
     { title: "Ch. 36 – Fossum", url: "https://vetdecks.gumroad.com/l/ch-36-fossum" },
     { title: "Ch. 37 – Fossum", url: "https://vetdecks.gumroad.com/l/ch-37-fossum" },
@@ -182,7 +177,6 @@ export default function Page() {
     url: "https://vetdecks.gumroad.com/l/ch-1-44-fossum",
   };
 
-  // Free starter decks (first decks for each book)
   const freeStarters = [
     {
       label: "Dyce — Ch. 3 (Free)",
@@ -206,7 +200,6 @@ export default function Page() {
     },
   ];
 
-  // --- POPUP (Happy 2026) ----------------------------------------------------
   const [show2026Popup, setShow2026Popup] = useState(false);
 
   useEffect(() => {
@@ -230,13 +223,11 @@ export default function Page() {
     }
   };
 
-  // Shared style: make "Full textbook options" buttons all white (no blue)
   const fullOptionBtnClass =
     "w-full bg-white text-slate-900 border border-slate-200 hover:bg-slate-50";
 
   return (
     <main className="min-h-screen text-slate-900">
-      {/* 2026 popup */}
       {show2026Popup && (
         <div className="fixed inset-0 z-50 flex items-center justify-center px-4">
           <div className="absolute inset-0 bg-black/40" onClick={close2026Popup} />
@@ -268,14 +259,12 @@ export default function Page() {
             </div>
           </div>
         </div>
-      )
+      )}
 
-      {/* top banner */}
       <div className="bg-amber-50 border-b border-amber-200 text-amber-800 text-center text-sm py-2 px-4">
         VetDecks is new 🎉 Fossum is done. Miller + Merck are on the way. Next: Plumb’s Pharmacology.
       </div>
 
-      {/* Nav */}
       <header className="sticky top-0 z-10 backdrop-blur bg-white/70 border-b border-slate-200">
         <div className="mx-auto max-w-6xl px-4 h-14 flex items-center justify-between">
           <a href="#" className="font-semibold tracking-tight">VetDecks</a>
@@ -296,7 +285,6 @@ export default function Page() {
         </div>
       </header>
 
-      {/* Hero */}
       <section className="bg-gradient-to-b from-white to-slate-50">
         <div className="mx-auto max-w-6xl px-4 py-20 grid md:grid-cols-2 gap-12 items-center">
           <div>
@@ -310,9 +298,7 @@ export default function Page() {
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <Button href="#subjects">Browse decks</Button>
-              <Button variant="outline" href="#free-starters">
-                Download free starter decks
-              </Button>
+              <Button variant="outline" href="#free-starters">Download free starter decks</Button>
             </div>
             <ul className="mt-6 space-y-2 text-slate-700">
               <li className="flex gap-2"><Check className="h-5 w-5 text-sky-600" /> Directly mapped to popular vet texts</li>
@@ -345,7 +331,6 @@ export default function Page() {
         </div>
       </section>
 
-      {/* Free starter decks hook */}
       <section id="free-starters" className="py-16 bg-white border-t scroll-mt-24">
         <div className="mx-auto max-w-6xl px-4">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-3">
@@ -366,21 +351,14 @@ export default function Page() {
                 </CardHeader>
                 <CardContent className="space-y-3">
                   <p className="text-sm text-slate-600">{item.sub}</p>
-                  <Button href={item.url} className="w-full">
-                    Download free
-                  </Button>
+                  <Button href={item.url} className="w-full">Download free</Button>
                 </CardContent>
               </Card>
             ))}
           </div>
-
-          <p className="mt-6 text-sm text-slate-600">
-            Tip: The free starters are designed to show the “feel” of VetDecks — clean prompts, exam-style difficulty, and quick filtering.
-          </p>
         </div>
       </section>
 
-      {/* Features */}
       <section id="features" className="py-16 border-t bg-white scroll-mt-24">
         <div className="mx-auto max-w-6xl px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center">Study smarter, retain longer</h2>
@@ -400,17 +378,14 @@ export default function Page() {
         </div>
       </section>
 
-      {/* Pricing ABOVE chapters */}
       <section id="pricing" className="py-20 bg-slate-50 border-t scroll-mt-24">
         <div className="mx-auto max-w-6xl px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center">Simple, student-friendly pricing</h2>
           <p className="text-center text-slate-700 mt-2">
-            Start with a free starter deck, then buy only what you need. Most decks range from{" "}
-            <strong>$0–$10</strong> per chapter/section.
+            Start with a free starter deck, then buy only what you need. Most decks range from <strong>$0–$10</strong> per chapter/section.
           </p>
 
           <div className="mt-10 grid md:grid-cols-2 gap-6">
-            {/* single chapter */}
             <Card>
               <CardHeader><CardTitle>Single chapter / section</CardTitle></CardHeader>
               <CardContent>
@@ -424,47 +399,28 @@ export default function Page() {
               </CardContent>
             </Card>
 
-            {/* full textbooks */}
             <Card>
               <CardHeader><CardTitle>Full textbook options</CardTitle></CardHeader>
               <CardContent className="space-y-3">
                 <p className="text-slate-700 text-sm">Buy everything for that book in one go.</p>
 
-                <Button href={dyceFull.url} variant="outline" className={fullOptionBtnClass}>
-                  {dyceFull.title}
-                </Button>
-                <Button href={cunninghamFull.url} variant="outline" className={fullOptionBtnClass}>
-                  {cunninghamFull.title}
-                </Button>
-                <Button href={wheaterFull.url} variant="outline" className={fullOptionBtnClass}>
-                  {wheaterFull.title}
-                </Button>
-                <Button href={zacharyFull.url} variant="outline" className={fullOptionBtnClass}>
-                  {zacharyFull.title}
-                </Button>
-                <Button href={dunlopFull.url} variant="outline" className={fullOptionBtnClass}>
-                  {dunlopFull.title}
-                </Button>
-                <Button href={fossumFull.url} variant="outline" className={fullOptionBtnClass}>
-                  {fossumFull.title}
-                </Button>
-
-                <p className="text-xs text-slate-500">
-                  More full-textbook bundles will be added as each book line is completed (Miller, Merck, Plumb’s).
-                </p>
+                <Button href={dyceFull.url} variant="outline" className={fullOptionBtnClass}>{dyceFull.title}</Button>
+                <Button href={cunninghamFull.url} variant="outline" className={fullOptionBtnClass}>{cunninghamFull.title}</Button>
+                <Button href={wheaterFull.url} variant="outline" className={fullOptionBtnClass}>{wheaterFull.title}</Button>
+                <Button href={zacharyFull.url} variant="outline" className={fullOptionBtnClass}>{zacharyFull.title}</Button>
+                <Button href={dunlopFull.url} variant="outline" className={fullOptionBtnClass}>{dunlopFull.title}</Button>
+                <Button href={fossumFull.url} variant="outline" className={fullOptionBtnClass}>{fossumFull.title}</Button>
               </CardContent>
             </Card>
           </div>
         </div>
       </section>
 
-      {/* SUBJECTS with dropdowns */}
       <section id="subjects" className="py-16 bg-white border-t scroll-mt-24">
         <div className="mx-auto max-w-6xl px-4 space-y-6">
           <h2 className="text-3xl md:text-4xl font-bold">Subjects & deck lines</h2>
           <p className="text-slate-700">Open the textbook you’re using and grab just the chapter you need.</p>
 
-          {/* Fossum */}
           <details className="border rounded-xl overflow-hidden bg-slate-50">
             <summary className="cursor-pointer px-4 py-3 flex items-center justify-between gap-4">
               <span className="font-semibold">Fossum’s Small Animal Surgery (Ch. 1–44)</span>
@@ -498,7 +454,6 @@ export default function Page() {
             </div>
           </details>
 
-          {/* Dyce */}
           <details className="border rounded-xl overflow-hidden bg-slate-50">
             <summary className="cursor-pointer px-4 py-3 flex items-center justify-between gap-4">
               <span className="font-semibold">Dyce, Sack & Wensing’s Textbook of Veterinary Anatomy (Ch. 1–38)</span>
@@ -507,21 +462,16 @@ export default function Page() {
             <div className="p-4 grid sm:grid-cols-2 md:grid-cols-3 gap-4">
               {dyceChapters.map((ch) => (
                 <Card key={ch.url}>
-                  <CardHeader className="pb-2">
-                    <CardTitle className="text-sm">{ch.title}</CardTitle>
-                  </CardHeader>
+                  <CardHeader className="pb-2"><CardTitle className="text-sm">{ch.title}</CardTitle></CardHeader>
                   <CardContent className="space-y-2">
                     <Button href={ch.url} className="w-full">Get this deck</Button>
-                    {ch.url === "https://vetdecks.gumroad.com/l/ch-3-dyce" && (
-                      <div className="text-xs text-emerald-700">Free starter deck</div>
-                    )}
+                    {ch.url === "https://vetdecks.gumroad.com/l/ch-3-dyce" && <div className="text-xs text-emerald-700">Free starter deck</div>}
                   </CardContent>
                 </Card>
               ))}
             </div>
           </details>
 
-          {/* Wheater */}
           <details className="border rounded-xl overflow-hidden bg-slate-50">
             <summary className="cursor-pointer px-4 py-3 flex items-center justify-between gap-4">
               <span className="font-semibold">Wheater’s Functional Histology</span>
@@ -530,29 +480,20 @@ export default function Page() {
             <div className="p-4 grid sm:grid-cols-2 md:grid-cols-3 gap-4">
               {wheaterParts.map((part) => (
                 <Card key={part.url}>
-                  <CardHeader className="pb-2">
-                    <CardTitle className="text-sm">{part.title}</CardTitle>
-                  </CardHeader>
+                  <CardHeader className="pb-2"><CardTitle className="text-sm">{part.title}</CardTitle></CardHeader>
                   <CardContent className="space-y-2">
                     <Button href={part.url} className="w-full">Get this deck</Button>
-                    {part.url === "https://vetdecks.gumroad.com/l/part-1-wheater" && (
-                      <div className="text-xs text-emerald-700">Free starter deck</div>
-                    )}
+                    {part.url === "https://vetdecks.gumroad.com/l/part-1-wheater" && <div className="text-xs text-emerald-700">Free starter deck</div>}
                   </CardContent>
                 </Card>
               ))}
               <Card>
-                <CardHeader className="pb-2">
-                  <CardTitle className="text-sm">{wheaterFull.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <Button href={wheaterFull.url} className="w-full">Get full textbook</Button>
-                </CardContent>
+                <CardHeader className="pb-2"><CardTitle className="text-sm">{wheaterFull.title}</CardTitle></CardHeader>
+                <CardContent><Button href={wheaterFull.url} className="w-full">Get full textbook</Button></CardContent>
               </Card>
             </div>
           </details>
 
-          {/* Cunningham */}
           <details className="border rounded-xl overflow-hidden bg-slate-50">
             <summary className="cursor-pointer px-4 py-3 flex items-center justify-between gap-4">
               <span className="font-semibold">Cunningham’s Veterinary Physiology (Sections 1–10)</span>
@@ -561,24 +502,16 @@ export default function Page() {
             <div className="p-4 grid sm:grid-cols-2 md:grid-cols-3 gap-4">
               {cunninghamSections.map((sec) => (
                 <Card key={sec.url}>
-                  <CardHeader className="pb-2">
-                    <CardTitle className="text-sm">{sec.title}</CardTitle>
-                  </CardHeader>
+                  <CardHeader className="pb-2"><CardTitle className="text-sm">{sec.title}</CardTitle></CardHeader>
                   <CardContent className="space-y-2">
                     <Button href={sec.url} className="w-full">Get this deck</Button>
-                    {sec.url === "https://vetdecks.gumroad.com/l/section-2-cunningham" && (
-                      <div className="text-xs text-emerald-700">Free starter deck</div>
-                    )}
+                    {sec.url === "https://vetdecks.gumroad.com/l/section-2-cunningham" && <div className="text-xs text-emerald-700">Free starter deck</div>}
                   </CardContent>
                 </Card>
               ))}
-              <p className="text-xs text-slate-500 md:col-span-3">
-                Full bundle available under “Full textbook options” above.
-              </p>
             </div>
           </details>
 
-          {/* Zachary */}
           <details className="border rounded-xl overflow-hidden bg-slate-50">
             <summary className="cursor-pointer px-4 py-3 flex items-center justify-between gap-4">
               <span className="font-semibold">Zachary’s Pathologic Basis of Veterinary Disease (Sections 1–3)</span>
@@ -587,26 +520,17 @@ export default function Page() {
             <div className="p-4 grid sm:grid-cols-2 md:grid-cols-3 gap-4">
               {zacharySections.map((sec) => (
                 <Card key={sec.url}>
-                  <CardHeader className="pb-2">
-                    <CardTitle className="text-sm">{sec.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <Button href={sec.url} className="w-full">Get this deck</Button>
-                  </CardContent>
+                  <CardHeader className="pb-2"><CardTitle className="text-sm">{sec.title}</CardTitle></CardHeader>
+                  <CardContent><Button href={sec.url} className="w-full">Get this deck</Button></CardContent>
                 </Card>
               ))}
               <Card>
-                <CardHeader className="pb-2">
-                  <CardTitle className="text-sm">{zacharyFull.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <Button href={zacharyFull.url} className="w-full">Get full bundle</Button>
-                </CardContent>
+                <CardHeader className="pb-2"><CardTitle className="text-sm">{zacharyFull.title}</CardTitle></CardHeader>
+                <CardContent><Button href={zacharyFull.url} className="w-full">Get full bundle</Button></CardContent>
               </Card>
             </div>
           </details>
 
-          {/* Dunlop */}
           <details className="border rounded-xl overflow-hidden bg-slate-50">
             <summary className="cursor-pointer px-4 py-3 flex items-center justify-between gap-4">
               <span className="font-semibold">Dunlop’s Veterinary Pathophysiology (Ch. 1–13)</span>
@@ -615,32 +539,21 @@ export default function Page() {
             <div className="p-4 grid sm:grid-cols-2 md:grid-cols-3 gap-4">
               {dunlopChapters.map((ch) => (
                 <Card key={ch.url}>
-                  <CardHeader className="pb-2">
-                    <CardTitle className="text-sm">{ch.title}</CardTitle>
-                  </CardHeader>
+                  <CardHeader className="pb-2"><CardTitle className="text-sm">{ch.title}</CardTitle></CardHeader>
                   <CardContent className="space-y-2">
                     <Button href={ch.url} className="w-full">Get this deck</Button>
-                    {ch.url === "https://vetdecks.gumroad.com/l/ch-4-dunlop" && (
-                      <div className="text-xs text-emerald-700">Free starter deck</div>
-                    )}
-                    {ch.url === "https://vetdecks.gumroad.com/l/ch-13-dunlop" && (
-                      <div className="text-xs text-slate-600">Chapter 13: Homeostatic & toxic disorders</div>
-                    )}
+                    {ch.url === "https://vetdecks.gumroad.com/l/ch-4-dunlop" && <div className="text-xs text-emerald-700">Free starter deck</div>}
+                    {ch.url === "https://vetdecks.gumroad.com/l/ch-13-dunlop" && <div className="text-xs text-slate-600">Chapter 13: Homeostatic & toxic disorders</div>}
                   </CardContent>
                 </Card>
               ))}
               <Card>
-                <CardHeader className="pb-2">
-                  <CardTitle className="text-sm">{dunlopFull.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <Button href={dunlopFull.url} className="w-full">Get full bundle</Button>
-                </CardContent>
+                <CardHeader className="pb-2"><CardTitle className="text-sm">{dunlopFull.title}</CardTitle></CardHeader>
+                <CardContent><Button href={dunlopFull.url} className="w-full">Get full bundle</Button></CardContent>
               </Card>
             </div>
           </details>
 
-          {/* Miller */}
           <details className="border rounded-xl overflow-hidden bg-slate-50">
             <summary className="cursor-pointer px-4 py-3 flex items-center justify-between gap-4">
               <span className="font-semibold">Miller’s Anatomy of the Dog (Ch. 1–7 so far)</span>
@@ -649,12 +562,8 @@ export default function Page() {
             <div className="p-4 grid sm:grid-cols-2 md:grid-cols-3 gap-4">
               {millerChapters.map((ch) => (
                 <Card key={ch.url}>
-                  <CardHeader className="pb-2">
-                    <CardTitle className="text-sm">{ch.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <Button href={ch.url} className="w-full">Get this deck</Button>
-                  </CardContent>
+                  <CardHeader className="pb-2"><CardTitle className="text-sm">{ch.title}</CardTitle></CardHeader>
+                  <CardContent><Button href={ch.url} className="w-full">Get this deck</Button></CardContent>
                 </Card>
               ))}
               <p className="text-xs text-slate-500 md:col-span-3">
@@ -665,62 +574,54 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ABOUT */}
       <section id="about" className="py-16 bg-white border-t scroll-mt-24">
         <div className="mx-auto max-w-6xl px-4">
           <div className="grid md:grid-cols-2 gap-8 items-start">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold">About me</h2>
               <p className="mt-3 text-slate-700">
-                Hey 👋 I’m a vet student who knows how overwhelming vet med can be. Between Dyce, Cunningham,
-                and endless lecture notes, I felt like I was drowning. To keep up, I started building my own Anki decks —
-                and they completely changed how I study.
+                Hey 👋 I’m a vet student who knows how overwhelming vet med can be. Between Dyce, Cunningham, and endless lecture notes, I felt like I was drowning. To keep up, I started building my own Anki decks — and they completely changed how I study.
               </p>
               <p className="mt-3 text-slate-700">
-                My GPA jumped (ended up at <strong>4.51</strong> 🐾📚), and for the first time I actually felt confident
-                walking into exams. That’s how <strong>VetDecks</strong> was born.
+                My GPA jumped (ended up at <strong>4.51</strong> 🐾📚), and for the first time I actually felt confident walking into exams. That’s how <strong>VetDecks</strong> was born.
               </p>
               <p className="mt-3 text-slate-700">
-                I’ve wanted to be a vet since I was <strong>3</strong>. I study at the{" "}
-                <strong>University of Veterinary Medicine Budapest</strong>, I’m currently a{" "}
-                <strong>4th year</strong>, and I’m aiming for <strong>equine medicine</strong> (or mixed practice).
+                I’ve wanted to be a vet since I was <strong>3</strong>. I study at the <strong>University of Veterinary Medicine Budapest</strong>, I’m currently a <strong>4th year</strong>, and I’m aiming for <strong>equine medicine</strong> or mixed practice.
               </p>
               <p className="mt-3 text-slate-700">
-                VetDecks turns the biggest textbooks into ready-made, turbo-charged decks — packed with key facts,
-                species differences, and higher-order questions — designed to save you time and help you ace exams
-                without the burnout.
+                VetDecks turns the biggest textbooks into ready-made, turbo-charged decks — packed with key facts, species differences, and higher-order questions — designed to save you time and help you ace exams without the burnout.
               </p>
             </div>
 
             <Card className="border-slate-200 overflow-hidden">
-  <div className="relative w-full h-72">
-    <Image
-      src="/about-me.jpg"
-      alt="VetDecks founder with a donkey"
-      fill
-      className="object-cover"
-      priority
-    />
-  </div>
-  <CardContent className="pt-5 space-y-2">
-    <div className="text-sm text-slate-500">Founder</div>
-    <div className="text-lg font-semibold">Building VetDecks from real vet student life 🐾</div>
-    <p className="text-sm text-slate-700">
-      If vet school feels overwhelming, you’re not alone — that’s exactly why I built these decks.
-    </p>
-  </CardContent>
-</Card>
+              <div className="relative w-full h-72">
+                <Image
+                  src="/about-me.jpeg"
+                  alt="VetDecks founder with a donkey"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              </div>
+              <CardContent className="pt-5 space-y-2">
+                <div className="text-sm text-slate-500">Founder</div>
+                <div className="text-lg font-semibold">Building VetDecks from real vet student life 🐾</div>
+                <p className="text-sm text-slate-700">
+                  If vet school feels overwhelming, you’re not alone — that’s exactly why I built these decks.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
 
-      {/* Custom deck requests */}
       <section id="custom" className="py-16 bg-white border-t scroll-mt-24">
         <div className="mx-auto max-w-6xl px-4">
           <div className="grid md:grid-cols-2 gap-8 items-start">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold">Custom decks (made from your materials)</h2>
               <p className="mt-3 text-slate-700">
-                Want Anki decks made from your lecture slides, handouts, or personal digital notes?
-                Send me the material and I’ll build the deck for you — so you don’t have to spend hours converting
-                content into flashcards.
+                Want Anki decks made from your lecture slides, handouts, or personal digital notes? Send me the material and I’ll build the deck for you — so you don’t have to spend hours converting content into flashcards.
               </p>
               <ul className="mt-5 space-y-2 text-slate-700">
                 <li className="flex gap-2"><Check className="h-5 w-5 text-emerald-600" /> You send the material (PDF, slides, notes)</li>
@@ -731,9 +632,7 @@ export default function Page() {
             </div>
 
             <Card className="border-slate-200">
-              <CardHeader>
-                <CardTitle>Request a quote</CardTitle>
-              </CardHeader>
+              <CardHeader><CardTitle>Request a quote</CardTitle></CardHeader>
               <CardContent className="space-y-3">
                 <p className="text-slate-700 text-sm">
                   Email <strong>info@vetdecks.com</strong> with:
@@ -750,16 +649,12 @@ export default function Page() {
                 >
                   Email for a quote
                 </Button>
-                <p className="text-xs text-slate-500">
-                  The goal is simple: save you time and give you a deck you can start using immediately.
-                </p>
               </CardContent>
             </Card>
           </div>
         </div>
       </section>
 
-      {/* FAQ */}
       <section id="faq" className="py-16 bg-slate-50 border-t scroll-mt-24">
         <div className="mx-auto max-w-6xl px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center">Frequently asked questions</h2>
@@ -771,7 +666,6 @@ export default function Page() {
         </div>
       </section>
 
-      {/* Testimonials */}
       <section className="py-16 bg-white border-t">
         <div className="mx-auto max-w-6xl px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center">What students are saying...</h2>
@@ -792,7 +686,6 @@ export default function Page() {
         </div>
       </section>
 
-      {/* Footer */}
       <footer className="py-12 bg-slate-50 border-t">
         <div className="mx-auto max-w-6xl px-4 grid md:grid-cols-3 gap-8 text-sm">
           <div>
@@ -814,16 +707,7 @@ export default function Page() {
             <div className="font-semibold">Stay in touch</div>
             <ul className="mt-2 space-y-2 text-slate-600">
               <li><a href="mailto:info@vetdecks.com" className="hover:underline">Email</a></li>
-              <li>
-                <a
-                  href="https://github.com/vetdecks/vetdecks-site"
-                  className="hover:underline"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  GitHub
-                </a>
-              </li>
+              <li><a href="https://github.com/vetdecks/vetdecks-site" className="hover:underline" target="_blank" rel="noreferrer">GitHub</a></li>
             </ul>
           </div>
         </div>
