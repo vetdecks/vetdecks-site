@@ -9,6 +9,32 @@ import { Check, Star, X } from "lucide-react";
 export default function Page() {
   // --- DATA -----------------------------------------------------------------
 
+  const plumbsSections = [
+    { title: "01 – Systemic Antihistamines", url: "https://vetdecks.gumroad.com/l/antihistamines", desc: "H1 inverse agonists, CNS penetration & mast cell stabilization" },
+    { title: "02 – Central Nervous System", url: "https://vetdecks.gumroad.com/l/CNS", desc: "Sedatives, anesthetics, anticonvulsants & neuroleptanalgesia" },
+    { title: "03 – Skeletal Muscle Relaxants", url: "https://vetdecks.gumroad.com/l/muscle-skeletal-relaxants", desc: "Spasmolytics, malignant hyperthermia & neuromuscular blockers" },
+    { title: "04 – Euthanasia Agents", url: "https://vetdecks.gumroad.com/l/euthanasia-agents", desc: "AVMA humane staging & oxybarbiturate pharmacology" },
+    { title: "05 – Cardiovascular Agents", url: "https://vetdecks.gumroad.com/l/cardiovascular-agents", desc: "Inotropes, antiarrhythmics, ACE inhibitors & vasodilators" },
+    { title: "06 – Respiratory Agents", url: "https://vetdecks.gumroad.com/l/respiratory-agents", desc: "Beta-2 bronchodilators, inhaled steroids & antitussives" },
+    { title: "07 – Renal & Urinary Tract Agents", url: "https://vetdecks.gumroad.com/l/renal-urinary-agents", desc: "Diuretics, urethral tone modulators & USMI therapies" },
+    { title: "08 – GIT & Hepatic Agents", url: "https://vetdecks.gumroad.com/l/GIT-hepatic-agnets", desc: "Antiemetics, PPIs, motility agents & hepatoprotectants" },
+    { title: "09 – Hormones & Reproduction", url: "https://vetdecks.gumroad.com/l/hormones-reproduction-agents", desc: "Insulins, thyroid/adrenal regulators & reproductive steroids" },
+    { title: "10 – Anti-infective Agents", url: "https://vetdecks.gumroad.com/l/antiinfective-agents", desc: "Antibacterials, antifungals, antivirals & antiparasitics" },
+    { title: "11 – Antineoplastic Agents", url: "https://vetdecks.gumroad.com/l/antineoplastic-agents", desc: "Alkylators, RTK inhibitors, antimetabolites & vesicant safety" },
+    { title: "12 – Immunomodulators", url: "https://vetdecks.gumroad.com/l/immunomodulators-immunostimulants", desc: "Calcineurin inhibitors, JAK inhibitors & monoclonal antibodies" },
+    { title: "13 – Antidotes & Reversal Agents", url: "https://vetdecks.gumroad.com/l/antidotes-reversal-agents", desc: "Targeted receptor antagonists, chelators & lipid sink rescue" },
+    { title: "14 – Bone & Joint Agents", url: "https://vetdecks.gumroad.com/l/bone-joints", desc: "Chondroprotectants, bisphosphonates & joint therapies" },
+    { title: "15 – Vitamins, Minerals & Nutrients", url: "https://vetdecks.gumroad.com/l/vitamins-minerals-nutrients", desc: "Electrolyte replenishers, hematinics & parenteral additives" },
+    { title: "16 – Cholinergic & Autonomic Agents", url: "https://vetdecks.gumroad.com/l/cholinergic-autonomic-agents", desc: "Parasympathomimetics, anticholinergics & autonomic modulators" },
+    { title: "17 – Acidifying & Alkalinizing Agents", url: "https://vetdecks.gumroad.com/l/acidifying-alkalinizing-agents", desc: "Systemic/urinary pH modifiers & urolithiasis management" },
+    { title: "18 – Other Systemic Agents", url: "https://vetdecks.gumroad.com/l/other-systemic-agents", desc: "Miscellaneous systemic therapeutics & specialized compendiums" },
+  ];
+
+  const plumbsFull = {
+    title: "Plumb's Veterinary Drug Handbook — Full Series (Sections 1–18)",
+    url: "https://vetdecks.gumroad.com/l/antihistamines", // Update if full bundle slug is created
+  };
+
   const dyceChapters = [
     { title: "Ch. 1 – Dyce", url: "https://vetdecks.gumroad.com/l/ch-1-dyce" },
     { title: "Ch. 2 – Dyce", url: "https://vetdecks.gumroad.com/l/ch-2-dyce" },
@@ -195,7 +221,7 @@ export default function Page() {
     },
     {
       label: "Dunlop — Ch. 4 (Free)",
-      sub: "Jump in with a solid first deck",
+      sub: "Pathophysiology starter deck",
       url: "https://vetdecks.gumroad.com/l/ch-4-dunlop",
     },
   ];
@@ -248,7 +274,7 @@ export default function Page() {
             <div className="p-5 space-y-3">
               <p className="text-slate-700">Wishing you a happy and productive 2026.</p>
               <p className="text-slate-700">
-                Imagine how much more productive 2026 could be with ready-made Anki decks mapped to your textbooks.
+                Imagine how much more productive 2026 could be with ready-made Anki decks mapped directly to your veterinary textbooks and drug guides.
               </p>
               <div className="pt-2">
                 <Button href="#free-starters" className="w-full">
@@ -262,7 +288,7 @@ export default function Page() {
       )}
 
       <div className="bg-amber-50 border-b border-amber-200 text-amber-800 text-center text-sm py-2 px-4">
-        VetDecks is new 🎉 Fossum is done. Miller + Merck are on the way. Next: Plumb’s Pharmacology.
+        VetDecks is live 🎉 Plumb’s Veterinary Drug Handbook (18 classes) is fully released!
       </div>
 
       <header className="sticky top-0 z-10 backdrop-blur bg-white/70 border-b border-slate-200">
@@ -293,37 +319,37 @@ export default function Page() {
               <span className="text-sky-700">crafted from the most-used textbooks</span>
             </h1>
             <p className="mt-5 text-lg text-slate-700">
-              VetDecks turns dense chapters into clean, exam-ready flashcards: fundamentals, species differences,
-              and higher-order questions — so you learn faster and remember longer.
+              VetDecks turns dense chapters and clinical drug handbooks into high-yield, exam-ready flashcards: fundamentals, species differences,
+              toxicities, and clinical reasoning — so you learn faster and retain longer.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <Button href="#subjects">Browse decks</Button>
               <Button variant="outline" href="#free-starters">Download free starter decks</Button>
             </div>
             <ul className="mt-6 space-y-2 text-slate-700">
-              <li className="flex gap-2"><Check className="h-5 w-5 text-sky-600" /> Directly mapped to popular vet texts</li>
-              <li className="flex gap-2"><Check className="h-5 w-5 text-sky-600" /> Basic facts → clinical reasoning</li>
-              <li className="flex gap-2"><Check className="h-5 w-5 text-sky-600" /> Copyright-safe, text-first cards</li>
+              <li className="flex gap-2"><Check className="h-5 w-5 text-sky-600" /> Mapped directly to Plumb’s, Fossum, Dyce & Cunningham</li>
+              <li className="flex gap-2"><Check className="h-5 w-5 text-sky-600" /> Tagged by species differences, mechanisms & clinical emergencies</li>
+              <li className="flex gap-2"><Check className="h-5 w-5 text-sky-600" /> Copyright-safe, text-first Anki cards ready for instant import</li>
             </ul>
           </div>
 
           <Card className="shadow-xl">
             <CardHeader>
-              <CardTitle>Sample Deck Preview</CardTitle>
+              <CardTitle>Sample Deck Preview (Pharmacology)</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
-              <div className="rounded-xl border p-4">
-                <div className="text-xs uppercase text-slate-500 mb-2">Front</div>
-                <p className="text-slate-900">
-                  Identify the major branches of the celiac artery in the dog and note a key species difference vs. the horse.
+              <div className="rounded-xl border p-4 bg-slate-50/50">
+                <div className="text-xs uppercase font-semibold text-slate-500 mb-2">Front</div>
+                <p className="text-slate-900 font-medium">
+                  Why is systemic acyclovir contraindicated in feline patients with FHV-1, and what is the primary dose-limiting toxicity of enrofloxacin in cats?
                 </p>
               </div>
-              <div className="rounded-xl border p-4">
-                <div className="text-xs uppercase text-slate-500 mb-2">Back</div>
-                <ul className="space-y-2">
-                  <li className="flex gap-2"><Check className="h-5 w-5 text-emerald-600" /> Dog: hepatic, left gastric, splenic.</li>
-                  <li className="flex gap-2"><Check className="h-5 w-5 text-emerald-600" /> Horse: enlarged splenic branches.</li>
-                  <li className="flex gap-2"><Check className="h-5 w-5 text-emerald-600" /> Source: standard vet anatomy texts.</li>
+              <div className="rounded-xl border p-4 bg-slate-50/50">
+                <div className="text-xs uppercase font-semibold text-slate-500 mb-2">Back</div>
+                <ul className="space-y-2 text-sm text-slate-800">
+                  <li className="flex gap-2"><Check className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" /> <strong>Acyclovir:</strong> Poor feline bioavailability; causes fatal bone marrow suppression and hepatic/renal necrosis.</li>
+                  <li className="flex gap-2"><Check className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" /> <strong>Enrofloxacin:</strong> Acute retinal degeneration and permanent blindness secondary to defective feline ABCG2 retinal transport.</li>
+                  <li className="flex gap-2"><Check className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" /> <strong>Tags:</strong> <code>species_difference</code> <code>toxicology</code> <code>plumbs_pharmacology</code></li>
                 </ul>
               </div>
             </CardContent>
@@ -364,10 +390,10 @@ export default function Page() {
           <h2 className="text-3xl md:text-4xl font-bold text-center">Study smarter, retain longer</h2>
           <div className="mt-10 grid md:grid-cols-4 gap-6">
             {[
-              ["Built for vet curricula", "Organized by course, species, and textbook."],
-              ["Exam-style prompts", "Higher-order and recall cards in the same deck."],
-              ["Buy only what you need", "Single chapter or full textbook bundles."],
-              ["Constantly expanding", "More anatomy, physiology, pathology in progress."],
+              ["Built for vet curricula", "Organized strictly by course, species differences, and standard compendiums."],
+              ["Exam-style prompts", "Higher-order clinical reasoning and active recall cards in every deck."],
+              ["Buy only what you need", "Single chapters, therapeutic drug classes, or full textbook bundles."],
+              ["Constantly expanding", "Covering anatomy, physiology, surgery, pathology, and now full pharmacology."],
             ].map(([title, body]) => (
               <Card key={title}>
                 <CardHeader><CardTitle className="text-lg">{title}</CardTitle></CardHeader>
@@ -392,24 +418,25 @@ export default function Page() {
                 <div className="text-5xl font-extrabold">$0–$10 <span className="text-base font-medium">USD/EUR*</span></div>
                 <p className="mt-2 text-slate-600 text-sm">*Final currency/price is set in Gumroad.</p>
                 <ul className="mt-4 space-y-2 text-slate-700">
-                  <li className="flex gap-2"><Check className="h-5 w-5 text-emerald-600" /> One chapter/section</li>
-                  <li className="flex gap-2"><Check className="h-5 w-5 text-emerald-600" /> Anki .apkg download</li>
-                  <li className="flex gap-2"><Check className="h-5 w-5 text-emerald-600" /> Keep it forever</li>
+                  <li className="flex gap-2"><Check className="h-5 w-5 text-emerald-600" /> One chapter / drug class</li>
+                  <li className="flex gap-2"><Check className="h-5 w-5 text-emerald-600" /> Instant Anki .apkg download</li>
+                  <li className="flex gap-2"><Check className="h-5 w-5 text-emerald-600" /> Keep it forever with lifetime updates</li>
                 </ul>
               </CardContent>
             </Card>
 
             <Card>
-              <CardHeader><CardTitle>Full textbook options</CardTitle></CardHeader>
+              <CardHeader><CardTitle>Full textbook bundles</CardTitle></CardHeader>
               <CardContent className="space-y-3">
-                <p className="text-slate-700 text-sm">Buy everything for that book in one go.</p>
+                <p className="text-slate-700 text-sm">Buy everything for that textbook or subject in one click:</p>
 
+                <Button href={plumbsFull.url} variant="outline" className={fullOptionBtnClass}>{plumbsFull.title}</Button>
                 <Button href={dyceFull.url} variant="outline" className={fullOptionBtnClass}>{dyceFull.title}</Button>
+                <Button href={fossumFull.url} variant="outline" className={fullOptionBtnClass}>{fossumFull.title}</Button>
                 <Button href={cunninghamFull.url} variant="outline" className={fullOptionBtnClass}>{cunninghamFull.title}</Button>
                 <Button href={wheaterFull.url} variant="outline" className={fullOptionBtnClass}>{wheaterFull.title}</Button>
                 <Button href={zacharyFull.url} variant="outline" className={fullOptionBtnClass}>{zacharyFull.title}</Button>
                 <Button href={dunlopFull.url} variant="outline" className={fullOptionBtnClass}>{dunlopFull.title}</Button>
-                <Button href={fossumFull.url} variant="outline" className={fullOptionBtnClass}>{fossumFull.title}</Button>
               </CardContent>
             </Card>
           </div>
@@ -419,8 +446,32 @@ export default function Page() {
       <section id="subjects" className="py-16 bg-white border-t scroll-mt-24">
         <div className="mx-auto max-w-6xl px-4 space-y-6">
           <h2 className="text-3xl md:text-4xl font-bold">Subjects & deck lines</h2>
-          <p className="text-slate-700">Open the textbook you’re using and grab just the chapter you need.</p>
+          <p className="text-slate-700">Open the textbook or subject you’re currently studying to grab your deck.</p>
 
+          {/* Plumb's Pharmacology */}
+          <details className="border rounded-xl overflow-hidden bg-slate-50" open>
+            <summary className="cursor-pointer px-4 py-3 flex items-center justify-between gap-4 font-semibold text-sky-900 bg-sky-50/50 border-b">
+              <span>Plumb’s Veterinary Drug Handbook (Therapeutic Classes 01–18)</span>
+              <span className="text-sm text-sky-700">18 Decks Available</span>
+            </summary>
+            <div className="p-4 grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+              {plumbsSections.map((sec) => (
+                <Card key={sec.url} className="flex flex-col justify-between">
+                  <CardHeader className="pb-2">
+                    <CardTitle className="text-sm leading-snug">{sec.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-2">
+                    <p className="text-xs text-slate-600 min-h-[32px]">{sec.desc}</p>
+                    <Button href={sec.url} className="w-full bg-sky-700 hover:bg-sky-800">
+                      Get this deck
+                    </Button>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </details>
+
+          {/* Fossum Small Animal Surgery */}
           <details className="border rounded-xl overflow-hidden bg-slate-50">
             <summary className="cursor-pointer px-4 py-3 flex items-center justify-between gap-4">
               <span className="font-semibold">Fossum’s Small Animal Surgery (Ch. 1–44)</span>
@@ -434,10 +485,10 @@ export default function Page() {
                   </CardHeader>
                   <CardContent className="space-y-2">
                     <Button href={ch.url} className="w-full">Get this deck</Button>
-                    {ch.url === "https://vetdecks.gumroad.com/l/ch-1-fossum" && (
+                    {ch.url.includes("ch-1-fossum") && (
                       <div className="text-xs text-slate-600">Chapter 1: Principles of surgical asepsis</div>
                     )}
-                    {ch.url === "https://vetdecks.gumroad.com/l/ch-30-31-fossum" && (
+                    {ch.url.includes("ch-30-31-fossum") && (
                       <div className="text-xs text-slate-600">Combined deck: Chapters 30–31</div>
                     )}
                   </CardContent>
@@ -454,6 +505,7 @@ export default function Page() {
             </div>
           </details>
 
+          {/* Dyce Anatomy */}
           <details className="border rounded-xl overflow-hidden bg-slate-50">
             <summary className="cursor-pointer px-4 py-3 flex items-center justify-between gap-4">
               <span className="font-semibold">Dyce, Sack & Wensing’s Textbook of Veterinary Anatomy (Ch. 1–38)</span>
@@ -465,35 +517,18 @@ export default function Page() {
                   <CardHeader className="pb-2"><CardTitle className="text-sm">{ch.title}</CardTitle></CardHeader>
                   <CardContent className="space-y-2">
                     <Button href={ch.url} className="w-full">Get this deck</Button>
-                    {ch.url === "https://vetdecks.gumroad.com/l/ch-3-dyce" && <div className="text-xs text-emerald-700">Free starter deck</div>}
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </details>
-
-          <details className="border rounded-xl overflow-hidden bg-slate-50">
-            <summary className="cursor-pointer px-4 py-3 flex items-center justify-between gap-4">
-              <span className="font-semibold">Wheater’s Functional Histology</span>
-              <span className="text-sm text-slate-500">Click to expand</span>
-            </summary>
-            <div className="p-4 grid sm:grid-cols-2 md:grid-cols-3 gap-4">
-              {wheaterParts.map((part) => (
-                <Card key={part.url}>
-                  <CardHeader className="pb-2"><CardTitle className="text-sm">{part.title}</CardTitle></CardHeader>
-                  <CardContent className="space-y-2">
-                    <Button href={part.url} className="w-full">Get this deck</Button>
-                    {part.url === "https://vetdecks.gumroad.com/l/part-1-wheater" && <div className="text-xs text-emerald-700">Free starter deck</div>}
+                    {ch.url.includes("ch-3-dyce") && <div className="text-xs text-emerald-700">Free starter deck</div>}
                   </CardContent>
                 </Card>
               ))}
               <Card>
-                <CardHeader className="pb-2"><CardTitle className="text-sm">{wheaterFull.title}</CardTitle></CardHeader>
-                <CardContent><Button href={wheaterFull.url} className="w-full">Get full textbook</Button></CardContent>
+                <CardHeader className="pb-2"><CardTitle className="text-sm">{dyceFull.title}</CardTitle></CardHeader>
+                <CardContent><Button href={dyceFull.url} className="w-full">Get full textbook</Button></CardContent>
               </Card>
             </div>
           </details>
 
+          {/* Cunningham Physiology */}
           <details className="border rounded-xl overflow-hidden bg-slate-50">
             <summary className="cursor-pointer px-4 py-3 flex items-center justify-between gap-4">
               <span className="font-semibold">Cunningham’s Veterinary Physiology (Sections 1–10)</span>
@@ -505,13 +540,41 @@ export default function Page() {
                   <CardHeader className="pb-2"><CardTitle className="text-sm">{sec.title}</CardTitle></CardHeader>
                   <CardContent className="space-y-2">
                     <Button href={sec.url} className="w-full">Get this deck</Button>
-                    {sec.url === "https://vetdecks.gumroad.com/l/section-2-cunningham" && <div className="text-xs text-emerald-700">Free starter deck</div>}
+                    {sec.url.includes("section-2-cunningham") && <div className="text-xs text-emerald-700">Free starter deck</div>}
                   </CardContent>
                 </Card>
               ))}
+              <Card>
+                <CardHeader className="pb-2"><CardTitle className="text-sm">{cunninghamFull.title}</CardTitle></CardHeader>
+                <CardContent><Button href={cunninghamFull.url} className="w-full">Get full textbook</Button></CardContent>
+              </Card>
             </div>
           </details>
 
+          {/* Wheater Histology */}
+          <details className="border rounded-xl overflow-hidden bg-slate-50">
+            <summary className="cursor-pointer px-4 py-3 flex items-center justify-between gap-4">
+              <span className="font-semibold">Wheater’s Functional Histology (Parts 1–3)</span>
+              <span className="text-sm text-slate-500">Click to expand</span>
+            </summary>
+            <div className="p-4 grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+              {wheaterParts.map((part) => (
+                <Card key={part.url}>
+                  <CardHeader className="pb-2"><CardTitle className="text-sm">{part.title}</CardTitle></CardHeader>
+                  <CardContent className="space-y-2">
+                    <Button href={part.url} className="w-full">Get this deck</Button>
+                    {part.url.includes("part-1-wheater") && <div className="text-xs text-emerald-700">Free starter deck</div>}
+                  </CardContent>
+                </Card>
+              ))}
+              <Card>
+                <CardHeader className="pb-2"><CardTitle className="text-sm">{wheaterFull.title}</CardTitle></CardHeader>
+                <CardContent><Button href={wheaterFull.url} className="w-full">Get full textbook</Button></CardContent>
+              </Card>
+            </div>
+          </details>
+
+          {/* Zachary Pathology */}
           <details className="border rounded-xl overflow-hidden bg-slate-50">
             <summary className="cursor-pointer px-4 py-3 flex items-center justify-between gap-4">
               <span className="font-semibold">Zachary’s Pathologic Basis of Veterinary Disease (Sections 1–3)</span>
@@ -531,6 +594,7 @@ export default function Page() {
             </div>
           </details>
 
+          {/* Dunlop Pathophysiology */}
           <details className="border rounded-xl overflow-hidden bg-slate-50">
             <summary className="cursor-pointer px-4 py-3 flex items-center justify-between gap-4">
               <span className="font-semibold">Dunlop’s Veterinary Pathophysiology (Ch. 1–13)</span>
@@ -542,8 +606,8 @@ export default function Page() {
                   <CardHeader className="pb-2"><CardTitle className="text-sm">{ch.title}</CardTitle></CardHeader>
                   <CardContent className="space-y-2">
                     <Button href={ch.url} className="w-full">Get this deck</Button>
-                    {ch.url === "https://vetdecks.gumroad.com/l/ch-4-dunlop" && <div className="text-xs text-emerald-700">Free starter deck</div>}
-                    {ch.url === "https://vetdecks.gumroad.com/l/ch-13-dunlop" && <div className="text-xs text-slate-600">Chapter 13: Homeostatic & toxic disorders</div>}
+                    {ch.url.includes("ch-4-dunlop") && <div className="text-xs text-emerald-700">Free starter deck</div>}
+                    {ch.url.includes("ch-13-dunlop") && <div className="text-xs text-slate-600">Chapter 13: Homeostatic & toxic disorders</div>}
                   </CardContent>
                 </Card>
               ))}
@@ -554,9 +618,10 @@ export default function Page() {
             </div>
           </details>
 
+          {/* Miller Canine Anatomy */}
           <details className="border rounded-xl overflow-hidden bg-slate-50">
             <summary className="cursor-pointer px-4 py-3 flex items-center justify-between gap-4">
-              <span className="font-semibold">Miller’s Anatomy of the Dog (Ch. 1–7 so far)</span>
+              <span className="font-semibold">Miller’s Anatomy of the Dog (Ch. 1–7)</span>
               <span className="text-sm text-slate-500">Click to expand</span>
             </summary>
             <div className="p-4 grid sm:grid-cols-2 md:grid-cols-3 gap-4">
@@ -566,9 +631,6 @@ export default function Page() {
                   <CardContent><Button href={ch.url} className="w-full">Get this deck</Button></CardContent>
                 </Card>
               ))}
-              <p className="text-xs text-slate-500 md:col-span-3">
-                Miller is in progress. Merck is on the way. Plumb’s Pharmacology is next.
-              </p>
             </div>
           </details>
         </div>
@@ -580,16 +642,16 @@ export default function Page() {
             <div>
               <h2 className="text-3xl md:text-4xl font-bold">About me</h2>
               <p className="mt-3 text-slate-700">
-                Hey 👋 I’m a vet student who knows how overwhelming vet med can be. Between Dyce, Cunningham, and endless lecture notes, I felt like I was drowning. To keep up, I started building my own Anki decks — and they completely changed how I study.
+                Hey 👋 I’m a vet student who knows how overwhelming vet med can be. Between Dyce, Cunningham, Plumb&apos;s, and endless lecture slides, I felt like I was drowning. To keep up, I built my own high-yield Anki systems — and they completely transformed my grades.
               </p>
               <p className="mt-3 text-slate-700">
-                My GPA jumped (ended up at <strong>4.51</strong> 🐾📚), and for the first time I actually felt confident walking into exams. That’s how <strong>VetDecks</strong> was born.
+                My GPA jumped (ended up at <strong>4.51</strong> 🐾📚), and for the first time I actually felt confident walking into oral and written clinical exams. That’s how <strong>VetDecks</strong> was born.
               </p>
               <p className="mt-3 text-slate-700">
-                I’ve wanted to be a vet since I was <strong>3</strong>. I study at the <strong>University of Veterinary Medicine Budapest</strong>, I’m currently a <strong>4th year</strong>, and I’m aiming for <strong>equine medicine</strong> or mixed practice.
+                I’ve wanted to be a vet since I was <strong>3</strong>. I study at the <strong>University of Veterinary Medicine Budapest</strong>, I’m currently a <strong>4th year</strong>, and I’m aiming for <strong>equine medicine</strong> or mixed clinical practice.
               </p>
               <p className="mt-3 text-slate-700">
-                VetDecks turns the biggest textbooks into ready-made, turbo-charged decks — packed with key facts, species differences, and higher-order questions — designed to save you time and help you ace exams without the burnout.
+                VetDecks turns the heaviest textbooks into ready-made, high-yield decks — packed with key mechanisms, species differences, and higher-order diagnostic questions — to save you hundreds of hours of card-making.
               </p>
             </div>
 
@@ -621,13 +683,13 @@ export default function Page() {
             <div>
               <h2 className="text-3xl md:text-4xl font-bold">Custom decks (made from your materials)</h2>
               <p className="mt-3 text-slate-700">
-                Want Anki decks made from your lecture slides, handouts, or personal digital notes? Send me the material and I’ll build the deck for you — so you don’t have to spend hours converting content into flashcards.
+                Want Anki decks made from your lecture slides, faculty handouts, or digital notes? Send me your material and I’ll format it into structured, exam-tested cards for you.
               </p>
               <ul className="mt-5 space-y-2 text-slate-700">
                 <li className="flex gap-2"><Check className="h-5 w-5 text-emerald-600" /> You send the material (PDF, slides, notes)</li>
-                <li className="flex gap-2"><Check className="h-5 w-5 text-emerald-600" /> I review scope + complexity</li>
-                <li className="flex gap-2"><Check className="h-5 w-5 text-emerald-600" /> You get a quote + turnaround time</li>
-                <li className="flex gap-2"><Check className="h-5 w-5 text-emerald-600" /> Delivered as an Anki .apkg</li>
+                <li className="flex gap-2"><Check className="h-5 w-5 text-emerald-600" /> I review scope + clinical complexity</li>
+                <li className="flex gap-2"><Check className="h-5 w-5 text-emerald-600" /> You get a quote + turnaround timeline</li>
+                <li className="flex gap-2"><Check className="h-5 w-5 text-emerald-600" /> Delivered as an import-ready Anki .apkg</li>
               </ul>
             </div>
 
@@ -658,10 +720,10 @@ export default function Page() {
       <section id="faq" className="py-16 bg-slate-50 border-t scroll-mt-24">
         <div className="mx-auto max-w-6xl px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center">Frequently asked questions</h2>
-          <div className="mt-8 space-y-4">
-            <Card><CardContent className="pt-6"><strong>Do I need Anki?</strong><br />Yes — downloads are standard .apkg files.</CardContent></Card>
-            <Card><CardContent className="pt-6"><strong>Are diagrams included?</strong><br />Not right now — decks are text-first to stay copyright-safe.</CardContent></Card>
-            <Card><CardContent className="pt-6"><strong>Can I request another textbook?</strong><br />Yes — email <a className="underline" href="mailto:info@vetdecks.com">info@vetdecks.com</a> with the book and chapters.</CardContent></Card>
+          <div className="mt-8 space-y-4 max-w-3xl mx-auto">
+            <Card><CardContent className="pt-6"><strong>Do I need Anki?</strong><br />Yes — downloads are standard <code>.apkg</code> files ready for instant import on desktop, iOS, or Android.</CardContent></Card>
+            <Card><CardContent className="pt-6"><strong>Are diagrams included?</strong><br />Decks are text-first to remain copyright-safe and emphasize core mechanisms, receptor targets, and clinical dosages.</CardContent></Card>
+            <Card><CardContent className="pt-6"><strong>Can I request another textbook?</strong><br />Yes — email <a className="underline text-sky-700 font-medium" href="mailto:info@vetdecks.com">info@vetdecks.com</a> with the book title and required chapters.</CardContent></Card>
           </div>
         </div>
       </section>
@@ -671,13 +733,13 @@ export default function Page() {
           <h2 className="text-3xl md:text-4xl font-bold text-center">What students are saying...</h2>
           <div className="mt-10 grid md:grid-cols-3 gap-6">
             {[
-              "Clearer than the textbook for quick review.",
-              "The mix of question difficulties really tests my knowledge — it feels like a full mock exam for each chapter.",
-              "Super easy to use and filter — I can jump straight to the topics I’m weakest in without wasting time.",
+              "Clearer than reading the reference manual for rapid pre-exam cramming.",
+              "The species differences and toxicity tags alone saved me on my pharmacology midterms.",
+              "Super easy to filter — I can jump straight to autonomic drugs or GI motility without sorting through huge decks.",
             ].map((quote) => (
               <Card key={quote}>
                 <CardContent className="pt-6 text-slate-800">
-                  <Star className="inline h-5 w-5 mr-2 text-amber-500" />
+                  <Star className="inline h-5 w-5 mr-2 text-amber-500 fill-amber-500" />
                   {quote}
                 </CardContent>
               </Card>
@@ -691,7 +753,7 @@ export default function Page() {
           <div>
             <div className="font-semibold">VetDecks</div>
             <p className="text-slate-600 mt-2">
-              Textbook-aligned Anki decks for vet students. More decks coming soon.
+              Textbook-aligned Anki decks for veterinary students.
             </p>
           </div>
           <div>
